@@ -30,6 +30,6 @@ jobs:
         with:
           butler_key: ${{secrets.ITCHIO_TOKEN}}
           itch_user: unprecedented
-          itch_game: gmtk-2025-game-jam:html5
+          itch_game: gmtk-2025-game-jam
           version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/gmtk-game-jam-2025.zip"
+          files: web "${{ steps.export.outputs.archive_directory }}/gmtk-game-jam-2025.zip"
