@@ -36,8 +36,9 @@ var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 
 func _ready():
-	play(0)
-	play(1)
+	pass
+	#play(0)
+	#play(1)
 
 func _physics_process(delta: float) -> void:
 	last_time = current_time
