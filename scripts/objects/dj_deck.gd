@@ -3,7 +3,6 @@ class_name DJDeck
 
 
 var looper:Loops = Looper
-
 @onready var rings:Array[TextureProgressBar] = [$Vbox/HBoxContainer/DrumNBassRing, $Vbox/HBoxContainer/LeadsRing]
 @onready var drum_n_bass_track_buttons:Array[Button] = \
 [$Vbox/HBoxContainer/DrumNBassTracks/Track1,
@@ -27,6 +26,16 @@ var track_queued_icon =  preload("res://assets/icons/track_queued_icon.png")
 var track_stopping_icon =  preload("res://assets/icons/track_stopping_icon.png")
 func _ready():
 	Looper.beat.connect(beat_flash)
+	Looper.beats_synced.connect(display_synced)
+	
+func display_synced(synced:bool):
+	if synced and $Synced_Text.text != "Loops Synced!":
+		$Synced_Text.text = "Loops Synced!"
+		$Synced_Text.modulate.a = 1
+	elif not synced:
+		$Synced_Text.text = "Loops out of sync"
+		$Synced_Text.modulate.a = 1
+			
 	
 func beat_flash(_main_beat:int, _measure_beat:int, _loop_beat:int):
 	if looper.flashy:
@@ -48,6 +57,7 @@ func _process(delta: float) -> void:
 					track_buttons[deck][i].icon = track_playing_icon
 					track_button_states[deck][i] = states.PLAYING
 	var new_color:Color = $Vbox/HBoxContainer/SoundMeterRight.tint_over
+	$Synced_Text.modulate.a -=delta* .5
 
 	if looper.flashy:
 		var amount_change = randf_range(.5,1.5)* delta

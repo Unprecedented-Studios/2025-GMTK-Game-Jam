@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bagmkalg5f024"]
+[gd_scene load_steps=9 format=3 uid="uid://bagmkalg5f024"]
 
 [ext_resource type="Script" uid="uid://cl6delaqytfaw" path="res://scripts/objects/dj_deck.gd" id="1_gefnp"]
 [ext_resource type="Texture2D" uid="uid://tmthpfjpj7q4" path="res://assets/icons/track_playing_icon.png" id="2_535jm"]
@@ -7,13 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bwlewe1pjqio4" path="res://scenes/objects/sample_button.tscn" id="5_8s83w"]
 [ext_resource type="Texture2D" uid="uid://byf5o1x14axtb" path="res://assets/dj_deck/deck_inner_circle.png" id="5_h7jqa"]
 [ext_resource type="Texture2D" uid="uid://7t6ioj3vqg2p" path="res://assets/dj_deck/audio_bar.png" id="6_af4r3"]
+[ext_resource type="Theme" uid="uid://dvw2fe07fhjwu" path="res://resources/themes/lore.tres" id="8_af4r3"]
 
 [node name="DjDeck" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 153.0
-offset_right = 153.0
-offset_bottom = 75.0
 script = ExtResource("1_gefnp")
 
 [node name="Vbox" type="VBoxContainer" parent="."]
@@ -170,6 +168,40 @@ alignment = 1
 
 [node name="SampleBox1" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
+sample_name = "Noise_Sweep_1"
+
+[node name="SampleBox2" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
+layout_mode = 2
+registered_key = "W"
+sample_name = "Noise_Sweep_1"
+
+[node name="SampleBox3" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
+layout_mode = 2
+registered_key = "E"
+sample_name = "Noise_Sweep_1"
+
+[node name="SampleBox4" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
+layout_mode = 2
+registered_key = "R"
+sample_name = "Noise_Sweep_1"
+
+[node name="Synced_Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 298.0
+offset_top = 137.0
+offset_right = 789.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_af4r3")
+theme_override_font_sizes/font_size = 72
+text = "Loops Synced!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track2" to="." method="_on_track_button_up" binds= [0, 1]]

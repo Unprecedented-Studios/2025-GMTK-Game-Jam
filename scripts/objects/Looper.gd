@@ -12,6 +12,7 @@ signal lead_attack_changed(new_attack:lead_attacks)
 
 var playing:bool = false
 var flashy:bool = true
+var synced:bool = true
 
 signal beat(beat_number:int, measure:int, sixteen: int)
 @onready var drum_n_bass_tracks:Array = [
@@ -68,7 +69,15 @@ func play_with_check():
 				elif deck_beats[i] == 16:
 					deck_beats[i] = 0
 					decks[i].play()
+					
+		if deck_beats[0] == deck_beats[1] and synced == false:
+			synced = true
+			beats_synced.emit(true)
+		elif deck_beats[0]!= deck_beats[1] and synced == true:
+			synced = false
+			beats_synced.emit(false)
 
+signal beats_synced(synced:bool)
 
 func play(deck_id:int = -1):
 	if deck_id == -1:
