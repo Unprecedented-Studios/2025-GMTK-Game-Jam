@@ -31,14 +31,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for deck in 2:
 		rings[deck].value = looper.deck_beats[deck]
-		if looper.deck_beats[deck] == 1:
+		if looper.deck_beats[deck] == 0:
 			for i in track_button_states[deck].size():
-					if track_button_states[deck][i] == states.STOPPING:
-						track_buttons[deck][i].icon = track_icon
-						track_button_states[deck][i] == states.STOPPED
-					elif track_button_states[deck][i] == states.QUEUED:
-						track_buttons[deck][i].icon = track_playing_icon
-						track_button_states[deck][i] == states.PLAYING
+				if track_button_states[deck][i] == states.STOPPING:
+					track_buttons[deck][i].icon = track_icon
+					track_button_states[deck][i] = states.STOPPED
+				elif track_button_states[deck][i] == states.QUEUED:
+					track_buttons[deck][i].icon = track_playing_icon
+					track_button_states[deck][i] = states.PLAYING
 
 
 
@@ -46,12 +46,14 @@ func _on_track_button_up(deck:int, track: int) -> void:
 	looper.deck_queued[deck] = true
 	looper.deck_queued_track[deck] = track
 	var queued_track_button:Button = track_buttons[deck][track] 
-	track_button_states[deck][track] = states.QUEUED
+
 	for i in track_button_states[deck].size():
 		if track_button_states[deck][i] == states.PLAYING or track_button_states[deck][i] == states.STOPPING:
 			track_buttons[deck][i].icon = track_stopping_icon
-			track_button_states[deck][i] == states.STOPPING
-		elif track_button_states[deck][i] == states.QUEUED: #make sure to clear any other buttons that were queued
+			track_button_states[deck][i] = states.STOPPING
+		#make sure to clear any other buttons that were queued
+		elif track_button_states[deck][i] == states.QUEUED: 
 			track_buttons[deck][i].icon = track_icon
-			track_button_states[deck][i] == states.STOPPED
+			track_button_states[deck][i] = states.STOPPED
+	track_button_states[deck][track] = states.QUEUED
 	queued_track_button.icon = track_queued_icon
