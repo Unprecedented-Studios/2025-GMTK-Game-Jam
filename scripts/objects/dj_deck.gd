@@ -3,6 +3,7 @@ class_name DJDeck
 
 
 var looper:Loops = Looper
+
 @onready var rings:Array[TextureProgressBar] = [$Vbox/HBoxContainer/DrumNBassRing, $Vbox/HBoxContainer/LeadsRing]
 @onready var drum_n_bass_track_buttons:Array[Button] = \
 [$Vbox/HBoxContainer/DrumNBassTracks/Track1,
@@ -24,9 +25,18 @@ var track_icon = preload("res://assets/icons/track_icon.png")
 var track_playing_icon = preload("res://assets/icons/track_playing_icon.png")
 var track_queued_icon =  preload("res://assets/icons/track_queued_icon.png")
 var track_stopping_icon =  preload("res://assets/icons/track_stopping_icon.png")
-
-
-func _process(_delta: float) -> void:
+func _ready():
+	Looper.beat.connect(beat_flash)
+	
+func beat_flash(_main_beat:int, _measure_beat:int, _loop_beat:int):
+	if looper.flashy:
+		$Vbox/HBoxContainer/DrumNBassRing.tint_over.a = 1.0
+		$Vbox/HBoxContainer/LeadsRing.tint_over.a = 1.0
+		$Vbox/HBoxContainer/SoundMeterLeft.value = 100* randf_range(.8,1.0)
+		$Vbox/HBoxContainer/SoundMeterRight.value = 100* randf_range(.8,1.0)
+		
+	
+func _process(delta: float) -> void:
 	for deck in 2:
 		rings[deck].value = looper.deck_beats[deck]
 		if looper.deck_beats[deck] == 0:
@@ -37,7 +47,14 @@ func _process(_delta: float) -> void:
 				elif track_button_states[deck][i] == states.QUEUED:
 					track_buttons[deck][i].icon = track_playing_icon
 					track_button_states[deck][i] = states.PLAYING
-					
+	var new_color:Color = $Vbox/HBoxContainer/SoundMeterRight.tint_over
+
+	if looper.flashy:
+		var amount_change = randf_range(.5,1.5)* delta
+		$Vbox/HBoxContainer/DrumNBassRing.tint_over.a -= amount_change
+		$Vbox/HBoxContainer/LeadsRing.tint_over.a -= amount_change
+		$Vbox/HBoxContainer/SoundMeterLeft.value -= delta* randf_range(50.0,100.0)
+		$Vbox/HBoxContainer/SoundMeterRight.value -= delta * randf_range(50.0,100.0)
 	joystick_input()
 
 func _on_track_button_up(deck:int, track: int) -> void:

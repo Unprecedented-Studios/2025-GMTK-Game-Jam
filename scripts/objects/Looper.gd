@@ -10,6 +10,8 @@ enum lead_attacks {STANDARD, PIERCE, MULTI, FAST}
 signal drum_attack_changed(new_attack:drum_attacks)
 signal lead_attack_changed(new_attack:lead_attacks)
 
+var playing:bool = false
+var flashy:bool = true
 
 signal beat(beat_number:int, measure:int, sixteen: int)
 @onready var drum_n_bass_tracks:Array = [
@@ -36,15 +38,16 @@ var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 
 func _ready():
-	pass
+	play()
 	#play(0)
 	#play(1)
 
 func _physics_process(delta: float) -> void:
-	last_time = current_time
-	current_time += delta
-	current_beat = current_time*2.0
-	play_with_check()
+	if playing:
+		last_time = current_time
+		current_time += delta
+		current_beat = current_time*2.0
+		play_with_check()
 	
 func play_with_check():
 	var current_beat_int:int = floor(current_beat)
@@ -73,8 +76,10 @@ func play(deck_id:int = -1):
 		decks[1].play()
 	elif deck_id ==0 or deck_id == 1:
 		decks[deck_id].play()
+	playing = true
 	
 func stop():
+	playing = false
 	decks[0].stop()
 	decks[1].stop()
 
