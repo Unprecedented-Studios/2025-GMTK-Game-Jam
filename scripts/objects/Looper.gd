@@ -1,6 +1,8 @@
 extends Node
-
+class_name Loops
 @onready var decks:Array[AudioStreamPlayer] = [$DrumNBassDeck,$LeadDeck]
+
+signal beat(beat_number:int)
 
 @onready var drum_n_bass_tracks:Array = [
 	preload("res://assets/loops/drumNBass1.mp3"),
@@ -36,6 +38,7 @@ func play_with_check(delta:float = 0.0):
 	var current_beat_int:int = floor(current_beat)
 	var last_beat_int:int =floor(last_time*2.0) 
 	if current_beat_int != last_beat_int:
+		beat.emit(current_beat_int)
 		deck_beats[0] += 1
 		deck_beats[1] += 1
 		print("current_beat: %s		deck_one: %s		deck_two: %s" % [current_beat_int,deck_beats[0],deck_beats[1]])
@@ -46,6 +49,7 @@ func play_with_check(delta:float = 0.0):
 					load_track(i,deck_queued_track[i])
 					deck_beats[i] = 0
 					decks[i].play()
+					deck_queued[i] = false
 				elif deck_beats[i] == 16:
 					deck_beats[i] = 0
 					decks[i].play()

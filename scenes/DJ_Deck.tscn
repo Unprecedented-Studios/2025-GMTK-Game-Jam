@@ -20,45 +20,6 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Lead Tracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Track1" type="Button" parent="Vbox/HBoxContainer/Lead Tracks"]
-layout_mode = 2
-text = "Rock Lead"
-icon = ExtResource("2_535jm")
-
-[node name="Track2" type="Button" parent="Vbox/HBoxContainer/Lead Tracks"]
-layout_mode = 2
-text = "Rock Lead"
-icon = ExtResource("3_535jm")
-
-[node name="Track3" type="Button" parent="Vbox/HBoxContainer/Lead Tracks"]
-layout_mode = 2
-text = "Rock Lead"
-icon = ExtResource("3_535jm")
-
-[node name="Track4" type="Button" parent="Vbox/HBoxContainer/Lead Tracks"]
-layout_mode = 2
-text = "Rock Lead
-"
-icon = ExtResource("3_535jm")
-
-[node name="LeadsRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
-layout_mode = 2
-fill_mode = 4
-texture_under = ExtResource("4_om14m")
-texture_over = ExtResource("4_om14m")
-tint_over = Color(0, 1, 0, 1)
-
-[node name="DrumNBassRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
-layout_mode = 2
-fill_mode = 4
-texture_under = ExtResource("4_om14m")
-texture_over = ExtResource("4_om14m")
-tint_over = Color(0, 1, 0, 1)
-
 [node name="DrumNBassTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -82,3 +43,53 @@ icon = ExtResource("3_535jm")
 layout_mode = 2
 text = "Rock Drums"
 icon = ExtResource("3_535jm")
+
+[node name="DrumNBassRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
+layout_mode = 2
+max_value = 16.0
+fill_mode = 4
+texture_under = ExtResource("4_om14m")
+texture_progress = ExtResource("4_om14m")
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="LeadsRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
+layout_mode = 2
+max_value = 16.0
+fill_mode = 4
+texture_under = ExtResource("4_om14m")
+texture_progress = ExtResource("4_om14m")
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="LeadTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Track1" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
+layout_mode = 2
+text = "Rock Lead"
+icon = ExtResource("2_535jm")
+
+[node name="Track2" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
+layout_mode = 2
+text = "Rock Lead"
+icon = ExtResource("3_535jm")
+
+[node name="Track3" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
+layout_mode = 2
+text = "Rock Lead"
+icon = ExtResource("3_535jm")
+
+[node name="Track4" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
+layout_mode = 2
+text = "Rock Lead
+"
+icon = ExtResource("3_535jm")
+
+[connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]
+[connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track2" to="." method="_on_track_button_up" binds= [0, 1]]
+[connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track3" to="." method="_on_track_button_up" binds= [0, 2]]
+[connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track4" to="." method="_on_track_button_up" binds= [0, 3]]
+[connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track1" to="." method="_on_track_button_up" binds= [1, 0]]
+[connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track2" to="." method="_on_track_button_up" binds= [1, 1]]
+[connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track3" to="." method="_on_track_button_up" binds= [1, 2]]
+[connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track4" to="." method="_on_track_button_up" binds= [1, 3]]
