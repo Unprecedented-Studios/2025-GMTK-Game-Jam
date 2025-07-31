@@ -63,12 +63,23 @@ func play_with_check():
 					deck_beats[i] = 0
 					decks[i].play()
 
-func play(deck_id:int = 0):
-	decks[deck_id].play()
+
+func play(deck_id:int = -1):
+	if deck_id == -1:
+		decks[0].play()
+		decks[1].play()
+	elif deck_id ==0 or deck_id == 1:
+		decks[deck_id].play()
+	
+func stop():
+	decks[0].stop()
+	decks[1].stop()
 
 func reset_music():
 	current_time = 0.0
 	last_time = 0.0
+	deck_beats[0] = 0
+	deck_beats[1] = 0
 	decks[0].stop()
 	decks[1].stop()
 	
