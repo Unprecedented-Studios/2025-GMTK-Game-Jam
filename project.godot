@@ -85,7 +85,6 @@ disable_install_audio_busses=true
 
 [physics]
 
-common/physics_ticks_per_second=120
 common/enable_pause_aware_picking=true
 
 [rendering]
