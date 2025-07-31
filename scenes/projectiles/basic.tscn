@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://1ua2kqju53jh"]
+
+[ext_resource type="Texture2D" uid="uid://cttpj6cp8dwsh" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile290.png" id="1_aqr3w"]
+[ext_resource type="Script" uid="uid://bjtdvmkktufac" path="res://scripts/objects/projectile.gd" id="2_irr35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqr3w"]
+radius = 7.0
+
+[node name="Basic_Projectile" type="Sprite2D"]
+texture = ExtResource("1_aqr3w")
+offset = Vector2(0, -12)
+script = ExtResource("2_irr35")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aqr3w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
