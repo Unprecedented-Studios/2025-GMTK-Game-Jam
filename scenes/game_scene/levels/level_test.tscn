@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc0s07hbh6xs5"]
+[gd_scene load_steps=5 format=3 uid="uid://dc0s07hbh6xs5"]
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
-[ext_resource type="PackedScene" uid="uid://dvp4xtd6mubsq" path="res://scenes/enemies/basic_enemy.tscn" id="4_waojt"]
 [ext_resource type="Script" uid="uid://k8emie0e7dys" path="res://scripts/objects/spawner.gd" id="5_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
-[ext_resource type="PackedScene" uid="uid://c0ats68u4sdfn" path="res://scenes/enemies/big_enemy.tscn" id="6_cuwy1"]
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_cuwy1")
@@ -29,7 +27,6 @@ position = Vector2(138, 36)
 script = ExtResource("5_cuwy1")
 spawn_interval_min = 0.5
 spawn_interval_max = 0.75
-items = Array[PackedScene]([ExtResource("4_waojt"), ExtResource("6_cuwy1")])
 spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2"), NodePath("Spawn3"), NodePath("Spawn4")]
 
 [node name="Spawn1" type="Marker2D" parent="Spawner"]
