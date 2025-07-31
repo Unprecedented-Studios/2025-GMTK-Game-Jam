@@ -1,8 +1,5 @@
 [gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://dlo5inop6ahho"]
 
-[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
-resource_name = "HardLimiter"
-
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
 resource_name = "Chorus"
 
@@ -18,6 +15,9 @@ drive = 0.8
 resource_name = "Delay"
 tap2_active = false
 
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
+resource_name = "HardLimiter"
+
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
 resource_name = "Compressor"
 
@@ -25,16 +25,16 @@ resource_name = "Compressor"
 resource_name = "Compressor"
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_j3pel")
-bus/0/effect/0/enabled = true
-bus/0/effect/1/effect = SubResource("AudioEffectChorus_j3pel")
+bus/0/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_j3pel")
 bus/0/effect/1/enabled = false
-bus/0/effect/2/effect = SubResource("AudioEffectReverb_j3pel")
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_j3pel")
 bus/0/effect/2/enabled = false
-bus/0/effect/3/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/3/effect = SubResource("AudioEffectDelay_j3pel")
 bus/0/effect/3/enabled = false
-bus/0/effect/4/effect = SubResource("AudioEffectDelay_j3pel")
-bus/0/effect/4/enabled = false
+bus/0/effect/4/effect = SubResource("AudioEffectHardLimiter_j3pel")
+bus/0/effect/4/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -51,33 +51,27 @@ bus/2/volume_db = 0.0
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectCompressor_g28q7")
 bus/2/effect/0/enabled = true
-bus/3/name = &"Drums"
+bus/3/name = &"Drum+Bass"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Music"
-bus/4/name = &"Bass"
+bus/4/name = &"Lead"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Music"
-bus/5/name = &"Synth"
+bus/5/name = &"Pads"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"Music"
-bus/6/name = &"Pads"
+bus/6/name = &"Samples"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 0.0
-bus/6/send = &"Music"
-bus/7/name = &"Samples"
-bus/7/solo = false
-bus/7/mute = false
-bus/7/bypass_fx = false
-bus/7/volume_db = 0.0
-bus/7/send = &"SFX"
+bus/6/send = &"SFX"

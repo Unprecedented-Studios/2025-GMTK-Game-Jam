@@ -1,67 +1,30 @@
 extends Node
 class_name Loops
+@onready var decks:Array[AudioStreamPlayer] = [$DrumNBassDeck,$LeadDeck]
 
-@onready var tracks:Dictionary = {"kick":{"playing":true,"player":$Kick},
-								 	"snare":{"playing":false,"player":$Snare},
-									"hats":{"playing":false,"player":$Hats},
-									"pad":{"playing":true,"player":$Pad},
-									"bass":{"playing":false,"player":$Bass},
-									"lead":{"playing":false,"player":$Lead},
-									"fx":{"playing":false,"player":$FX},
-									"other":{"playing":false,"player":$Other}
-}
-@onready var songs:Array = [{"name":"Song1"}]
-
-var kick_playing:bool:
-	get:
-		return tracks["kick"]["playing"]
-	set(new_val):
-		tracks["kick"]["playing"] = new_val
-var snare_playing:bool:
-	get:
-		return tracks["snare"]["playing"]
-	set(new_val):
-		tracks["snare"]["playing"] = new_val
-var hats_playing:bool:
-	get:
-		return tracks["hats"]["playing"]
-	set(new_val):
-		tracks["hats"]["playing"] = new_val
-var pads_playing:bool:
-	get:
-		return tracks["pads"]["playing"]
-	set(new_val):
-		tracks["pads"]["playing"] = new_val
-var bass_playing:bool:
-	get:
-		return tracks["bass"]["playing"]
-	set(new_val):
-		tracks["bass"]["playing"] = new_val
-var lead_playing:bool:
-	get:
-		return tracks["lead"]["playing"]
-	set(new_val):
-		tracks["lead"]["playing"] = new_val
-var fx_playing:bool:
-	get:
-		return tracks["fx"]["playing"]
-	set(new_val):
-		tracks["fx"]["playing"] = new_val
-
-var other_playing:bool:
-	get:
-		return tracks["other"]["playing"]
-	set(new_val):
-		tracks["other"]["playing"] = new_val
-		
+@onready var drum_n_bass_tracks:Array = [
+	preload("res://assets/loops/drumNBass1.mp3"),
+	preload("res://assets/loops/drumNBass2.mp3"),
+	preload("res://assets/loops/drumNBass3.mp3"),
+	preload("res://assets/loops/drumNBass4.mp3")
+	]
+@onready var lead_tracks:Array = [
+	preload("res://assets/loops/lead1.mp3"),
+	preload("res://assets/loops/lead2.mp3"),
+	preload("res://assets/loops/lead3.mp3"),
+	preload("res://assets/loops/lead4.mp3")
+	]
+var deck_queued:Array[bool] = [false,false]
+var deck_queued_track:Array[int] = [0,0]
 		
 var current_time:float = 0.0
 var current_beat:float = 0.0
 var last_time:float = 0.0
+var deck_beats:Array[int] = [0,0]
 
 func _ready():
-	load_song(songs[0]["name"])
-	play()
+	play(0)
+	play(1)
 
 func _physics_process(delta: float) -> void:
 	last_time = current_time
@@ -70,32 +33,34 @@ func _physics_process(delta: float) -> void:
 	play_with_check()
 	
 func play_with_check(delta:float = 0.0):
-	var reset_loop:bool
 	var current_beat_int:int = floor(current_beat)
-	if current_beat_int % 16 == 0:
-		var last_beat_int:int =floor(last_time*2.0) 
-		if current_beat_int != last_beat_int:
-			play(delta)
+	var last_beat_int:int =floor(last_time*2.0) 
+	if current_beat_int != last_beat_int:
+		deck_beats[0] += 1
+		deck_beats[1] += 1
+		print("current_beat: %s		deck_one: %s		deck_two: %s" % [current_beat_int,deck_beats[0],deck_beats[1]])
+		if current_beat_int % 4 == 0:
+			for i in 2:
+				if deck_queued[i]:
+					decks[i].stop()
+					load_track(i,deck_queued_track[i])
+					deck_beats[i] = 0
+					decks[i].play()
+				elif deck_beats[i] == 16:
+					deck_beats[i] = 0
+					decks[i].play()
 
-func play(delta:float = 0.0):
-	for k in tracks.keys():
-		if tracks[k]["playing"]:
-			tracks[k]["player"].play(delta)
-
+func play(deck_id:int = 0):
+	decks[deck_id].play()
 
 func reset_music():
 	current_time = 0.0
 	last_time = 0.0
-	for k in tracks.keys():
-		tracks[k]["playing"]= false
-	tracks["kick"]["playing"]= true
-	tracks["pads"]["playing"]= true
+	decks[0].stop()
+	decks[1].stop()
 	
-func load_song(song_name:String):
-	var song = DirAccess.open("res://assets/loops/" + song_name + "/")
-	var tracks_in_song = song.get_files()
-	for k in tracks.keys():
-		if tracks_in_song.find(k + ".mp3"):
-			tracks[k]["player"].stream = load("res://assets/loops/" + song_name + "/" + k + ".mp3")
-		else:
-			tracks[k]["player"].stream = null
+func load_track(deck_id:int =0, track_id:int = 0):
+	if deck_id == 0:
+		decks[deck_id].stream = drum_n_bass_tracks[track_id]
+	else:
+		decks[deck_id].stream = lead_tracks[track_id]
