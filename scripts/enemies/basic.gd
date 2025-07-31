@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @export var speed: float = 200;
-@export var health: int = 10;
+@export var health: float = 10;
 @export var damage: int = 10;
 
 @onready var health_bar = %HealthProgress
@@ -18,11 +18,13 @@ func _physics_process(_delta):
 		var collision_info = get_slide_collision(i);
 		var collider = collision_info.get_collider();
 		if (collider.has_method("take_damage") && !collider.is_in_group("enemy")):
-			collider.take_damage(damage)
+			var damage_info = DamageInfo.new()
+			damage_info.damage = damage
+			collider.take_damage(damage_info)
 			queue_free()
 
-func take_damage(amount):
-	health -= amount;
+func take_damage(info: DamageInfo):
+	health -= info.damage;
 	health_bar.value = health;
 	if (health <= 0):
 		queue_free();

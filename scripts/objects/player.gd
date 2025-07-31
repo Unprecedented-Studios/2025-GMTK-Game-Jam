@@ -7,8 +7,8 @@ func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
 
-func take_damage(amount):
-	health -= amount;
+func take_damage(info: DamageInfo):
+	health -= info.damage;
 	health_bar.value = health;
 	if (health <= 0):
 		queue_free();
