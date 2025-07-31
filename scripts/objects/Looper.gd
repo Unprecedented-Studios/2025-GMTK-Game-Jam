@@ -2,7 +2,7 @@ extends Node
 class_name Loops
 @onready var decks:Array[AudioStreamPlayer] = [$DrumNBassDeck,$LeadDeck]
 
-signal beat(beat_number:int)
+signal beat(beat_number:int, measure:int, sixteen: int)
 
 @onready var drum_n_bass_tracks:Array = [
 	preload("res://assets/loops/drumNBass1.mp3"),
@@ -21,7 +21,7 @@ var deck_queued_track:Array[int] = [0,0]
 		
 var current_time:float = 0.0
 var current_beat:float = 0.0
-var last_time:float = 0.0
+var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 
 func _ready():
@@ -36,12 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 func play_with_check(delta:float = 0.0):
 	var current_beat_int:int = floor(current_beat)
-	var last_beat_int:int =floor(last_time*2.0) 
+	var last_beat_int:int =floor(last_time*2.0)
 	if current_beat_int != last_beat_int:
-		beat.emit(current_beat_int)
+		beat.emit(current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1 )
 		deck_beats[0] += 1
 		deck_beats[1] += 1
-		print("current_beat: %s		deck_one: %s		deck_two: %s" % [current_beat_int,deck_beats[0],deck_beats[1]])
+		print("current_beat: %s-%s-%s		deck_one: %s		deck_two: %s" % [current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1,deck_beats[0],deck_beats[1]])
 		if current_beat_int % 4 == 0:
 			for i in 2:
 				if deck_queued[i]:
