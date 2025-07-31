@@ -54,7 +54,6 @@ func play_with_check():
 	var current_beat_int:int = floor(current_beat)
 	var last_beat_int:int =floor(last_time*2.0)
 	if current_beat_int != last_beat_int:
-		beat.emit(current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1 )
 		deck_beats[0] += 1
 		deck_beats[1] += 1
 		print("current_beat: %s-%s-%s		deck_one: %s		deck_two: %s" % [current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1,deck_beats[0],deck_beats[1]])
@@ -76,6 +75,7 @@ func play_with_check():
 		elif deck_beats[0]!= deck_beats[1] and synced == true:
 			synced = false
 			beats_synced.emit(false)
+		beat.emit(current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1 )
 
 signal beats_synced(synced:bool)
 
