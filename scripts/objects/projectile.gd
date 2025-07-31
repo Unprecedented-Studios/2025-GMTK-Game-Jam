@@ -8,6 +8,7 @@ func _ready():
 	_damage_info.damage = damage;
 	if (Looper.playing_drum_attack == Looper.drum_attacks.SLOW):
 		_damage_info.effects.push_back(DamageInfo.effect_types.SLOW);
+		modulate.r = 0
 
 func _physics_process(delta):
 	global_position += Vector2(speed * delta, 0);

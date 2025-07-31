@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc0s07hbh6xs5"]
+[gd_scene load_steps=7 format=3 uid="uid://dc0s07hbh6xs5"]
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
 [ext_resource type="Script" uid="uid://k8emie0e7dys" path="res://scripts/objects/spawner.gd" id="5_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bagmkalg5f024" path="res://scenes/DJ_Deck.tscn" id="5_kw1mj"]
 [ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwcio"]
+size = Vector2(1457.5, 199)
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_cuwy1")
@@ -47,3 +50,10 @@ offset_left = 187.0
 offset_top = 383.0
 offset_right = 187.0
 offset_bottom = 383.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(780.25, 409.5)
+shape = SubResource("RectangleShape2D_lwcio")

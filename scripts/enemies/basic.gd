@@ -19,7 +19,7 @@ func _physics_process(_delta):
 	for i in collision_count:
 		var collision_info = get_slide_collision(i);
 		var collider = collision_info.get_collider();
-		if (collider.has_method("take_damage") && !collider.is_in_group("enemy")):
+		if (collider.has_method("take_damage") && collider.is_in_group("player")):
 			var damage_info = DamageInfo.new()
 			damage_info.damage = damage
 			collider.take_damage(damage_info)
