@@ -31,8 +31,6 @@ func play(delta:float = 0):
 		bass.play(delta)
 	if drums_playing:
 		drums.play(delta)
-				
-		
 
 func reset_music():
 	current_time = 0.0
