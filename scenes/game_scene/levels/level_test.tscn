@@ -1,27 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc0s07hbh6xs5"]
+[gd_scene load_steps=6 format=3 uid="uid://dc0s07hbh6xs5"]
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
 [ext_resource type="Script" uid="uid://k8emie0e7dys" path="res://scripts/objects/spawner.gd" id="5_cuwy1"]
+[ext_resource type="PackedScene" uid="uid://bagmkalg5f024" path="res://scenes/DJ_Deck.tscn" id="5_kw1mj"]
 [ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_cuwy1")
 
 [node name="Speaker" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(139, 471)
+position = Vector2(120, 245)
 
 [node name="PlayerArea" parent="." instance=ExtResource("5_lwcio")]
 position = Vector2(650, 697)
 
 [node name="Speaker2" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(144, 315)
+position = Vector2(119, 175)
 
 [node name="Speaker3" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(138, 167)
+position = Vector2(119, 105)
 
 [node name="Speaker4" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(138, 36)
+position = Vector2(119, 35)
 
 [node name="Spawner" type="Node" parent="." node_paths=PackedStringArray("spawnPoints")]
 script = ExtResource("5_cuwy1")
@@ -30,13 +31,19 @@ spawn_interval_max = 0.75
 spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2"), NodePath("Spawn3"), NodePath("Spawn4")]
 
 [node name="Spawn1" type="Marker2D" parent="Spawner"]
-position = Vector2(1268, 485)
+position = Vector2(1300, 245)
 
 [node name="Spawn2" type="Marker2D" parent="Spawner"]
-position = Vector2(1268, 326)
+position = Vector2(1300, 175)
 
 [node name="Spawn3" type="Marker2D" parent="Spawner"]
-position = Vector2(1266, 177)
+position = Vector2(1300, 105)
 
 [node name="Spawn4" type="Marker2D" parent="Spawner"]
-position = Vector2(1264, 38)
+position = Vector2(1300, 35)
+
+[node name="DjDeck" parent="." instance=ExtResource("5_kw1mj")]
+offset_left = 187.0
+offset_top = 383.0
+offset_right = 187.0
+offset_bottom = 383.0

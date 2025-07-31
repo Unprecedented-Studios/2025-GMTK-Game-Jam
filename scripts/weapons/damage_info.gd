@@ -15,6 +15,6 @@ enum effect_types {
 	DOT
 }
 
-var damage: float
-var type: damage_types
-var effects: effect_types
+var damage: float = 1
+var type: damage_types = damage_types.NORMAL;
+var effects: Array[effect_types] = []

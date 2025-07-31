@@ -5,12 +5,14 @@ extends CharacterBody2D
 
 @onready var health_bar = %HealthProgress
 
+@onready var current_speed = speed;
+
 func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
 
 func _physics_process(_delta):
-	velocity = Vector2(-speed, 0);
+	velocity = Vector2(-current_speed, 0);
 	move_and_slide()
 	
 	var collision_count = get_slide_collision_count();
@@ -28,3 +30,6 @@ func take_damage(info: DamageInfo):
 	health_bar.value = health;
 	if (health <= 0):
 		queue_free();
+	
+	if (info.effects.has(DamageInfo.effect_types.SLOW)):
+		current_speed = speed / 2
