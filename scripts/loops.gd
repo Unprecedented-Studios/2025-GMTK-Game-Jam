@@ -4,12 +4,13 @@ class_name Loops
 @onready var tracks:Dictionary = {"kick":{"playing":true,"player":$Kick},
 								 	"snare":{"playing":false,"player":$Snare},
 									"hats":{"playing":false,"player":$Hats},
-									"pads":{"playing":true,"player":$Pads},
+									"pad":{"playing":true,"player":$Pad},
 									"bass":{"playing":false,"player":$Bass},
-									"lead":{"playing":false,"player":$Leads},
+									"lead":{"playing":false,"player":$Lead},
 									"fx":{"playing":false,"player":$FX},
 									"other":{"playing":false,"player":$Other}
 }
+@onready var songs:Array = [{"name":"Song1"}]
 
 var kick_playing:bool:
 	get:
@@ -59,6 +60,7 @@ var current_beat:float = 0.0
 var last_time:float = 0.0
 
 func _ready():
+	load_song(songs[0]["name"])
 	play()
 
 func _physics_process(delta: float) -> void:
@@ -88,3 +90,12 @@ func reset_music():
 		tracks[k]["playing"]= false
 	tracks["kick"]["playing"]= true
 	tracks["pads"]["playing"]= true
+	
+func load_song(song_name:String):
+	var song = DirAccess.open("res://assets/loops/" + song_name + "/")
+	var tracks_in_song = song.get_files()
+	for k in tracks.keys():
+		if tracks_in_song.find(k + ".mp3"):
+			tracks[k]["player"].stream = load("res://assets/loops/" + song_name + "/" + k + ".mp3")
+		else:
+			tracks[k]["player"].stream = null
