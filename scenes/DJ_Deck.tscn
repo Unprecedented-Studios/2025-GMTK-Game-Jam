@@ -24,24 +24,37 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
+[node name="Label" type="Label" parent="Vbox/HBoxContainer/DrumNBassTracks"]
+layout_mode = 2
+text = "Drum Loops"
+horizontal_alignment = 1
+
 [node name="Track1" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
-text = "Rock Drums"
+tooltip_text = "Standard drums and bass
+Standard Attack"
+text = "Four on the Floor"
 icon = ExtResource("2_535jm")
 
 [node name="Track2" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
-text = "Rock Drums"
+tooltip_text = "Slow down the beat
+Slow down the enemies"
+text = "Half Time"
 icon = ExtResource("3_535jm")
 
 [node name="Track3" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
-text = "Rock Drums"
+tooltip_text = "Get everyone Grooving
+Does AOE"
+text = "Groovy"
 icon = ExtResource("3_535jm")
 
 [node name="Track4" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
-text = "Rock Drums"
+tooltip_text = "Mess with the beat times and
+Damange them over time"
+text = "Syncopated"
 icon = ExtResource("3_535jm")
 
 [node name="DrumNBassRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
@@ -64,25 +77,37 @@ tint_progress = Color(0, 1, 0, 1)
 layout_mode = 2
 alignment = 1
 
+[node name="Label" type="Label" parent="Vbox/HBoxContainer/LeadTracks"]
+layout_mode = 2
+text = "Lead Loops"
+horizontal_alignment = 1
+
 [node name="Track1" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
-text = "Rock Lead"
+tooltip_text = "Standard sync plucks
+Standard Attack"
+text = "Plucky"
 icon = ExtResource("2_535jm")
 
 [node name="Track2" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
-text = "Rock Lead"
+tooltip_text = "Smooth notes 
+Go right through enemies"
+text = "Legato"
 icon = ExtResource("3_535jm")
 
 [node name="Track3" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
-text = "Rock Lead"
+tooltip_text = "More notes
+More hits"
+text = "Chords"
 icon = ExtResource("3_535jm")
 
 [node name="Track4" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
-text = "Rock Lead
-"
+tooltip_text = "Fast notes
+Fast attacks"
+text = "Arpeggiated"
 icon = ExtResource("3_535jm")
 
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]

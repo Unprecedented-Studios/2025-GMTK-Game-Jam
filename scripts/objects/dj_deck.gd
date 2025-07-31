@@ -25,10 +25,8 @@ var track_playing_icon = preload("res://assets/icons/track_playing_icon.png")
 var track_queued_icon =  preload("res://assets/icons/track_queued_icon.png")
 var track_stopping_icon =  preload("res://assets/icons/track_stopping_icon.png")
 
-func _ready() -> void:
-	pass
-	
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	for deck in 2:
 		rings[deck].value = looper.deck_beats[deck]
 		if looper.deck_beats[deck] == 0:
@@ -39,8 +37,6 @@ func _process(delta: float) -> void:
 				elif track_button_states[deck][i] == states.QUEUED:
 					track_buttons[deck][i].icon = track_playing_icon
 					track_button_states[deck][i] = states.PLAYING
-
-
 
 func _on_track_button_up(deck:int, track: int) -> void:
 	looper.deck_queued[deck] = true
@@ -57,3 +53,7 @@ func _on_track_button_up(deck:int, track: int) -> void:
 			track_button_states[deck][i] = states.STOPPED
 	track_button_states[deck][track] = states.QUEUED
 	queued_track_button.icon = track_queued_icon
+	
+	
+func _input(_event: InputEvent) -> void:
+	pass
