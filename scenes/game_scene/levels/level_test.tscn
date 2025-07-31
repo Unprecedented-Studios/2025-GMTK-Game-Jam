@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc0s07hbh6xs5"]
+[gd_scene load_steps=6 format=3 uid="uid://dc0s07hbh6xs5"]
 
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
 [ext_resource type="PackedScene" uid="uid://dvp4xtd6mubsq" path="res://scenes/enemies/basic_enemy.tscn" id="4_waojt"]
 [ext_resource type="Script" uid="uid://k8emie0e7dys" path="res://scripts/objects/spawner.gd" id="5_cuwy1"]
+[ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
 [ext_resource type="PackedScene" uid="uid://c0ats68u4sdfn" path="res://scenes/enemies/big_enemy.tscn" id="6_cuwy1"]
 
 [node name="LevelTest" type="Node2D"]
@@ -17,3 +18,6 @@ position = Vector2(97, 34)
 position = Vector2(98, 9)
 script = ExtResource("5_cuwy1")
 items = Array[PackedScene]([ExtResource("4_waojt"), ExtResource("6_cuwy1")])
+
+[node name="PlayerArea" parent="." instance=ExtResource("5_lwcio")]
+position = Vector2(650, 697)
