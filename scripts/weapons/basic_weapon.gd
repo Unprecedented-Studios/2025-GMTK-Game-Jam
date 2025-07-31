@@ -16,7 +16,7 @@ func _fire_projectile(offset: Vector2 = Vector2(0,0) ):
 func _on_beat(_beat_counter,_note, _count):
 	_fire_projectile()
 	if (Looper.playing_lead_attack == Looper.lead_attacks.FAST):
-		_multiShot = 3
+		_multiShot = 0
 		get_tree().create_timer(0.5/4.0).timeout.connect(_multiShot_beat)
 
 func _on_wave_start():
@@ -29,7 +29,7 @@ func _on_wave_stop():
 	_shooting = false;
 
 func _multiShot_beat():
-	_multiShot -= 1
-	_fire_projectile(Vector2(0, 10 * _multiShot))
-	if (_multiShot > 0):
+	_multiShot += 1
+	_fire_projectile(Vector2(0, -10 * _multiShot))
+	if (_multiShot < 3):
 		get_tree().create_timer(0.5/4.0).timeout.connect(_multiShot_beat)

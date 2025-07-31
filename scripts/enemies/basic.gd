@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @export var speed: float = 200;
-@export var health: float = 10;
+@export var health: float = 30;
 @export var damage: int = 10;
 
 @onready var health_bar = %HealthProgress

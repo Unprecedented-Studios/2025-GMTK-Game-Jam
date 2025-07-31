@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch7riw71x6d87"]
+
+[ext_resource type="Script" uid="uid://k8emie0e7dys" path="res://scripts/objects/spawner.gd" id="1_lkrw2"]
+[ext_resource type="PackedScene" uid="uid://caf7nk7hs72s8" path="res://scenes/objects/spawn.tscn" id="2_jobsr"]
+
+[node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawnPoints")]
+script = ExtResource("1_lkrw2")
+spawn_interval_min = 0.5
+spawn_interval_max = 0.75
+spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2"), NodePath("Spawn3"), NodePath("Spawn4")]
+
+[node name="Spawn1" parent="." instance=ExtResource("2_jobsr")]
+position = Vector2(0, 255)
+
+[node name="Spawn2" parent="." instance=ExtResource("2_jobsr")]
+position = Vector2(0, 185)
+
+[node name="Spawn3" parent="." instance=ExtResource("2_jobsr")]
+position = Vector2(0, 115)
+
+[node name="Spawn4" parent="." instance=ExtResource("2_jobsr")]
+position = Vector2(0, 45)

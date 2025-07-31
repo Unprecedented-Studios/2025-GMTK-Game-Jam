@@ -2,58 +2,44 @@
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
-[ext_resource type="Script" uid="uid://k8emie0e7dys" path="res://scripts/objects/spawner.gd" id="5_cuwy1"]
+[ext_resource type="PackedScene" uid="uid://ch7riw71x6d87" path="res://scenes/objects/spawner.tscn" id="4_lwcio"]
 [ext_resource type="PackedScene" uid="uid://bagmkalg5f024" path="res://scenes/DJ_Deck.tscn" id="5_kw1mj"]
 [ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwcio"]
-size = Vector2(1457.5, 199)
+size = Vector2(1635.5, 183)
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_cuwy1")
 
 [node name="Speaker" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(120, 245)
+position = Vector2(120, 265)
 
 [node name="PlayerArea" parent="." instance=ExtResource("5_lwcio")]
 position = Vector2(650, 697)
 
 [node name="Speaker2" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 175)
+position = Vector2(119, 195)
 
 [node name="Speaker3" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 105)
+position = Vector2(119, 125)
 
 [node name="Speaker4" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 35)
+position = Vector2(119, 55)
 
-[node name="Spawner" type="Node" parent="." node_paths=PackedStringArray("spawnPoints")]
-script = ExtResource("5_cuwy1")
-spawn_interval_min = 0.5
-spawn_interval_max = 0.75
-spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2"), NodePath("Spawn3"), NodePath("Spawn4")]
-
-[node name="Spawn1" type="Marker2D" parent="Spawner"]
-position = Vector2(1300, 245)
-
-[node name="Spawn2" type="Marker2D" parent="Spawner"]
-position = Vector2(1300, 175)
-
-[node name="Spawn3" type="Marker2D" parent="Spawner"]
-position = Vector2(1300, 105)
-
-[node name="Spawn4" type="Marker2D" parent="Spawner"]
-position = Vector2(1300, 35)
+[node name="Spawner" parent="." instance=ExtResource("4_lwcio")]
+position = Vector2(1350, 0)
 
 [node name="DjDeck" parent="." instance=ExtResource("5_kw1mj")]
-offset_left = 187.0
+offset_left = 71.0
 offset_top = 383.0
-offset_right = 187.0
+offset_right = 71.0
 offset_bottom = 383.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(780.25, 409.5)
+position = Vector2(869.25, 417.5)
 shape = SubResource("RectangleShape2D_lwcio")

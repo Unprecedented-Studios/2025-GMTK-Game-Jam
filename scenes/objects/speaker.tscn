@@ -5,6 +5,7 @@
 
 [node name="Image" type="Sprite2D"]
 texture = ExtResource("1_cq8v5")
+offset = Vector2(0, -20)
 
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource("3_ex5jh")

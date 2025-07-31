@@ -1,20 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvp4xtd6mubsq"]
 
 [ext_resource type="Script" uid="uid://6r4ww2oabfoq" path="res://scripts/enemies/basic.gd" id="1_8xi43"]
-[ext_resource type="Texture2D" uid="uid://ctfl5lq83mmic" path="res://icon.png" id="2_ibjif"]
+[ext_resource type="Texture2D" uid="uid://e24p2ai5h5gt" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile245.png" id="2_8xi43"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lwcio"]
-radius = 33.1361
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibjif"]
+radius = 20.0
+height = 58.0
 
 [node name="Basic_Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_mask = 3
 script = ExtResource("1_8xi43")
 
-[node name="Enemy" type="Sprite2D" parent="."]
-texture = ExtResource("2_ibjif")
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_8xi43")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_lwcio")
+shape = SubResource("CapsuleShape2D_ibjif")
 
 [node name="HealthProgress" type="ProgressBar" parent="."]
 unique_name_in_owner = true

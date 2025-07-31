@@ -9,9 +9,8 @@ func _ready():
 func spawn_something():
 	var enemy = WaveState.get_enemy()
 	if enemy: 
-		var enemy_spawn = enemy.instantiate();
 		var spawn_point = spawnPoints.pick_random();
-		spawn_point.add_child(enemy_spawn)
+		spawn_point.spawn_enemy(enemy);
 		get_tree().create_timer(randf_range(spawn_interval_min, spawn_interval_max)).timeout.connect(spawn_something)
 
 func _on_wave_start():
