@@ -7,10 +7,34 @@
 [node name="Loops" type="Node"]
 script = ExtResource("1_inqr5")
 
-[node name="Drums" type="AudioStreamPlayer" parent="."]
+[node name="Kick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mkloe")
 bus = &"Drums"
+
+[node name="Snare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mkloe")
+bus = &"Drums"
+
+[node name="Hats" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mkloe")
+bus = &"Drums"
+
+[node name="Pads" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ipycq")
+bus = &"Bass"
 
 [node name="Bass" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ipycq")
 bus = &"Bass"
+
+[node name="Lead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mkloe")
+bus = &"Drums"
+
+[node name="FX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ipycq")
+bus = &"Bass"
+
+[node name="Other" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mkloe")
+bus = &"Drums"
