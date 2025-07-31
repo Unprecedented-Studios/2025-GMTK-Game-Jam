@@ -32,30 +32,42 @@ horizontal_alignment = 1
 [node name="Track1" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
 tooltip_text = "Standard drums and bass
-Standard Attack"
-text = "Four on the Floor"
+Standard Attack
+
+1 or L-UP"
+text = "1 - Four on the Floor"
 icon = ExtResource("2_535jm")
+alignment = 0
 
 [node name="Track2" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
 tooltip_text = "Slow down the beat
-Slow down the enemies"
-text = "Half Time"
+Slow down the enemies
+
+1 or L-RIGHT"
+text = "2 - Half Time"
 icon = ExtResource("3_535jm")
+alignment = 0
 
 [node name="Track3" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
 tooltip_text = "Get everyone Grooving
-Does AOE"
-text = "Groovy"
+Does AOE
+
+3 or L-DOWN"
+text = "3 - Groovy"
 icon = ExtResource("3_535jm")
+alignment = 0
 
 [node name="Track4" type="Button" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
 tooltip_text = "Mess with the beat times and
-Damange them over time"
-text = "Syncopated"
+Damange them over time
+
+4 or R-DOWN"
+text = "4 - Syncopated"
 icon = ExtResource("3_535jm")
+alignment = 0
 
 [node name="DrumNBassRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -85,30 +97,42 @@ horizontal_alignment = 1
 [node name="Track1" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
 tooltip_text = "Standard sync plucks
-Standard Attack"
-text = "Plucky"
+Standard Attack
+
+5 or R-UP"
+text = "5 - Plucky"
 icon = ExtResource("2_535jm")
+alignment = 0
 
 [node name="Track2" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
 tooltip_text = "Smooth notes 
-Go right through enemies"
-text = "Legato"
+Go right through enemies
+
+6 or R-RIGHT"
+text = "6 - Legato"
 icon = ExtResource("3_535jm")
+alignment = 0
 
 [node name="Track3" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
 tooltip_text = "More notes
-More hits"
-text = "Chords"
+More hits
+
+7 or L-DOWN"
+text = "7 - Chords"
 icon = ExtResource("3_535jm")
+alignment = 0
 
 [node name="Track4" type="Button" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
 tooltip_text = "Fast notes
-Fast attacks"
-text = "Arpeggiated"
+Fast attacks
+
+8 or R-RIGHT"
+text = "8 - Arpeggiated"
 icon = ExtResource("3_535jm")
+alignment = 0
 
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track2" to="." method="_on_track_button_up" binds= [0, 1]]

@@ -1,6 +1,8 @@
 extends Node
 class_name Loops
+
 @onready var decks:Array[AudioStreamPlayer] = [$DrumNBassDeck,$LeadDeck]
+
 
 enum drum_attacks {STANDARD, SLOW, AOE, DOT}
 enum lead_attacks {STANDARD, PIERCE, MULTI, FAST}
