@@ -29,7 +29,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
@@ -81,6 +81,7 @@ disable_install_audio_busses=true
 
 [physics]
 
+common/physics_ticks_per_second=120
 common/enable_pause_aware_picking=true
 
 [rendering]

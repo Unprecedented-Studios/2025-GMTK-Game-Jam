@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgr01l84nb6l0"]
+
+[ext_resource type="Script" uid="uid://tlkhocuyi2wa" path="res://scripts/loops.gd" id="1_inqr5"]
+[ext_resource type="AudioStream" uid="uid://l66hqlcas5fo" path="res://assets/loops/Kick.mp3" id="2_mkloe"]
+[ext_resource type="AudioStream" uid="uid://w8li5dfidcml" path="res://assets/loops/Bass.mp3" id="3_ipycq"]
+
+[node name="Loops" type="Node"]
+script = ExtResource("1_inqr5")
+
+[node name="Drums" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mkloe")
+bus = &"Drums"
+
+[node name="Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ipycq")
+bus = &"Bass"
