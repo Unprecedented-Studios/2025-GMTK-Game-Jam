@@ -10,14 +10,14 @@ func _ready():
 	health_bar.value = health;
 
 func _physics_process(delta):
-	velocity = Vector2(0, speed);
+	velocity = Vector2(-speed, 0);
 	move_and_slide()
 	
 	var collision_count = get_slide_collision_count();
 	for i in collision_count:
 		var collision_info = get_slide_collision(i);
 		var collider = collision_info.get_collider();
-		if (collider.has_method("take_damage")):
+		if (collider.has_method("take_damage") && !collider.is_in_group("enemy")):
 			collider.take_damage(damage)
 			queue_free()
 

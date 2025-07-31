@@ -9,15 +9,36 @@
 [node name="LevelTest" type="Node2D"]
 
 [node name="Speaker" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(104, 598)
-
-[node name="Enemy" parent="." instance=ExtResource("4_waojt")]
-position = Vector2(97, 34)
+position = Vector2(139, 471)
 
 [node name="Spawner" type="Marker2D" parent="."]
-position = Vector2(98, 9)
+position = Vector2(1268, 485)
+script = ExtResource("5_cuwy1")
+items = Array[PackedScene]([ExtResource("4_waojt"), ExtResource("6_cuwy1")])
+
+[node name="Spawner2" type="Marker2D" parent="."]
+position = Vector2(1268, 326)
 script = ExtResource("5_cuwy1")
 items = Array[PackedScene]([ExtResource("4_waojt"), ExtResource("6_cuwy1")])
 
 [node name="PlayerArea" parent="." instance=ExtResource("5_lwcio")]
 position = Vector2(650, 697)
+
+[node name="Speaker2" parent="." instance=ExtResource("1_waojt")]
+position = Vector2(144, 315)
+
+[node name="Speaker3" parent="." instance=ExtResource("1_waojt")]
+position = Vector2(138, 167)
+
+[node name="Speaker4" parent="." instance=ExtResource("1_waojt")]
+position = Vector2(138, 36)
+
+[node name="Spawner3" type="Marker2D" parent="."]
+position = Vector2(1266, 177)
+script = ExtResource("5_cuwy1")
+items = Array[PackedScene]([ExtResource("4_waojt"), ExtResource("6_cuwy1")])
+
+[node name="Spawner4" type="Marker2D" parent="."]
+position = Vector2(1264, 38)
+script = ExtResource("5_cuwy1")
+items = Array[PackedScene]([ExtResource("4_waojt"), ExtResource("6_cuwy1")])
