@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvp4xtd6mubsq"]
+
+[ext_resource type="Script" uid="uid://6r4ww2oabfoq" path="res://scripts/enemies/basic.gd" id="1_8xi43"]
+[ext_resource type="Texture2D" uid="uid://ctfl5lq83mmic" path="res://icon.png" id="2_ibjif"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwcio"]
+radius = 33.1361
+
+[node name="Basic_Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_mask = 2
+script = ExtResource("1_8xi43")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+texture = ExtResource("2_ibjif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lwcio")
+
+[node name="HealthProgress" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -25.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 36.0
+show_percentage = false

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsxnqniqj5wkp"]
+
+[ext_resource type="Texture2D" uid="uid://crnp152kpj5yj" path="res://assets/temp_assets/speaker_0.png" id="1_cq8v5"]
+[ext_resource type="Script" uid="uid://cs5xt622fde26" path="res://scripts/objects/speaker.gd" id="2_v7xm4"]
+[ext_resource type="Script" uid="uid://bxqb2ad4fwn4o" path="res://scripts/weapons/basic_weapon.gd" id="3_ex5jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq8v5"]
+size = Vector2(36, 59)
+
+[node name="Speaker" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("2_v7xm4")
+
+[node name="Image" type="Sprite2D" parent="."]
+texture = ExtResource("1_cq8v5")
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("3_ex5jh")
+
+[node name="Timer" type="Timer" parent="Weapon"]
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -23.0
+offset_top = 32.0
+offset_right = 26.0
+offset_bottom = 39.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_cq8v5")
