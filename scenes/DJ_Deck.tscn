@@ -12,6 +12,7 @@
 [node name="DjDeck" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("8_af4r3")
 script = ExtResource("1_gefnp")
 
 [node name="Vbox" type="VBoxContainer" parent="."]
@@ -30,6 +31,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Drum Loops"
 horizontal_alignment = 1
 
@@ -39,6 +41,7 @@ tooltip_text = "Standard drums and bass
 Standard Attack
 
 1 or L-UP"
+theme = ExtResource("8_af4r3")
 text = "1 - Four on the Floor"
 icon = ExtResource("2_535jm")
 alignment = 0
@@ -49,6 +52,7 @@ tooltip_text = "Slow down the beat
 Slow down the enemies
 
 1 or L-RIGHT"
+theme = ExtResource("8_af4r3")
 text = "2 - Half Time"
 icon = ExtResource("3_535jm")
 alignment = 0
@@ -59,6 +63,7 @@ tooltip_text = "Get everyone Grooving
 Does AOE
 
 3 or L-DOWN"
+theme = ExtResource("8_af4r3")
 text = "3 - Groovy"
 icon = ExtResource("3_535jm")
 alignment = 0
@@ -69,6 +74,7 @@ tooltip_text = "Mess with the beat times and
 Damange them over time
 
 4 or R-DOWN"
+theme = ExtResource("8_af4r3")
 text = "4 - Syncopated"
 icon = ExtResource("3_535jm")
 alignment = 0
@@ -85,7 +91,7 @@ fill_mode = 4
 texture_under = ExtResource("4_om14m")
 texture_over = ExtResource("5_h7jqa")
 texture_progress = ExtResource("4_om14m")
-tint_progress = Color(0, 1, 0, 1)
+tint_progress = Color(0, 1, 1, 1)
 
 [node name="SoundMeterLeft" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -106,7 +112,7 @@ fill_mode = 4
 texture_under = ExtResource("4_om14m")
 texture_over = ExtResource("5_h7jqa")
 texture_progress = ExtResource("4_om14m")
-tint_progress = Color(0, 1, 0, 1)
+tint_progress = Color(0, 1, 1, 1)
 
 [node name="LeadTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -114,6 +120,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Vbox/HBoxContainer/LeadTracks"]
 layout_mode = 2
+theme = ExtResource("8_af4r3")
+theme_override_font_sizes/font_size = 24
 text = "Lead Loops"
 horizontal_alignment = 1
 
@@ -123,6 +131,7 @@ tooltip_text = "Standard sync plucks
 Standard Attack
 
 5 or R-UP"
+theme = ExtResource("8_af4r3")
 text = "5 - Plucky"
 icon = ExtResource("2_535jm")
 alignment = 0
@@ -133,6 +142,7 @@ tooltip_text = "Smooth notes
 Go right through enemies
 
 6 or R-RIGHT"
+theme = ExtResource("8_af4r3")
 text = "6 - Legato"
 icon = ExtResource("3_535jm")
 alignment = 0
@@ -143,6 +153,7 @@ tooltip_text = "More notes
 More hits
 
 7 or L-DOWN"
+theme = ExtResource("8_af4r3")
 text = "7 - Chords"
 icon = ExtResource("3_535jm")
 alignment = 0
@@ -153,6 +164,7 @@ tooltip_text = "Fast notes
 Fast attacks
 
 8 or R-RIGHT"
+theme = ExtResource("8_af4r3")
 text = "8 - Arpeggiated"
 icon = ExtResource("3_535jm")
 alignment = 0
