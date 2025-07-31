@@ -14,9 +14,11 @@ script = ExtResource("1_gefnp")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Vbox"]
 layout_mode = 2
+alignment = 1
 
 [node name="Lead Tracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
 layout_mode = 2

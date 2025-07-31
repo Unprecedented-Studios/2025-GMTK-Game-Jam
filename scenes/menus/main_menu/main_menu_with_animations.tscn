@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://c78vtc8cg3qo8"]
+[gd_scene load_steps=18 format=3 uid="uid://c78vtc8cg3qo8"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
 [ext_resource type="Script" uid="uid://dqwkxqvo2k8yo" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
 [ext_resource type="PackedScene" uid="uid://boicxc6x4554n" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://bg8qlntq37pp" path="res://scenes/credits/scrollable_credits.tscn" id="4_rr1rn"]
-[ext_resource type="PackedScene" uid="uid://bgr01l84nb6l0" path="res://scenes/game_scene/loops.tscn" id="5_sr523"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -420,8 +419,6 @@ size = Vector2i(480, 158)
 dialog_text = "Are you sure you want to start a new game?
 
 All progress in the current game will be lost."
-
-[node name="Loops" parent="." index="12" instance=ExtResource("5_sr523")]
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]

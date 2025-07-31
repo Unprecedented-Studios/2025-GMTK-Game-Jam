@@ -1,5 +1,5 @@
 extends Node
-class_name Loops
+
 @onready var decks:Array[AudioStreamPlayer] = [$DrumNBassDeck,$LeadDeck]
 
 @onready var drum_n_bass_tracks:Array = [
