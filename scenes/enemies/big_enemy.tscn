@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c7ykhu7vrsdp3" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile248.png" id="2_2c0e7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i54nl"]
-radius = 35.0
-height = 120.0
+radius = 30.0
+height = 94.0
 
 [node name="Big_Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_mask = 3

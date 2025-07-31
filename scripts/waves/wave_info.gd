@@ -10,6 +10,13 @@ class WaveElement:
 var _enemyCount: Array[WaveElement] = []
 
 func createWave(level):
+
+	#var debug_element = WaveElement.new()
+	#debug_element.ID = 1
+	#debug_element.count = 1
+	#_enemyCount.push_back(debug_element)
+	#return;
+	
 	for i in range(0,enemy_list.types.size()):
 		if level >= enemy_list.firstWave[i]:
 			var element = WaveElement.new()
