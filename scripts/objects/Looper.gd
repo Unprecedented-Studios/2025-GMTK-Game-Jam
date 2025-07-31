@@ -90,6 +90,8 @@ func load_track(deck_id:int =0, track_id:int = 0):
 	if deck_id == 0:
 		decks[deck_id].stream = drum_n_bass_tracks[track_id]
 		drum_attack_changed.emit(track_id)
+		playing_drum_attack = track_id
 	else:
 		decks[deck_id].stream = lead_tracks[track_id]
 		lead_attack_changed.emit(track_id)
+		playing_lead_attack = track_id

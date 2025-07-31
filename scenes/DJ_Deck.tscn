@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bagmkalg5f024"]
+[gd_scene load_steps=6 format=3 uid="uid://bagmkalg5f024"]
 
 [ext_resource type="Script" uid="uid://cl6delaqytfaw" path="res://scripts/objects/dj_deck.gd" id="1_gefnp"]
 [ext_resource type="Texture2D" uid="uid://tmthpfjpj7q4" path="res://assets/icons/track_playing_icon.png" id="2_535jm"]
 [ext_resource type="Texture2D" uid="uid://cfxe5aftuark" path="res://assets/icons/track_icon.png" id="3_535jm"]
 [ext_resource type="Texture2D" uid="uid://dl7p4y3ckukfi" path="res://assets/dj_deck/deck_ring_large.png" id="4_om14m"]
+[ext_resource type="PackedScene" uid="uid://bwlewe1pjqio4" path="res://scenes/objects/sample_button.tscn" id="5_8s83w"]
 
 [node name="DjDeck" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 153.0
+offset_right = 153.0
+offset_bottom = 75.0
 script = ExtResource("1_gefnp")
 
 [node name="Vbox" type="VBoxContainer" parent="."]
@@ -68,6 +72,11 @@ Damange them over time
 text = "4 - Syncopated"
 icon = ExtResource("3_535jm")
 alignment = 0
+
+[node name="Spacer" type="Label" parent="Vbox/HBoxContainer/DrumNBassTracks"]
+layout_mode = 2
+text = "                                                      "
+horizontal_alignment = 1
 
 [node name="DrumNBassRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -133,6 +142,18 @@ Fast attacks
 text = "8 - Arpeggiated"
 icon = ExtResource("3_535jm")
 alignment = 0
+
+[node name="Spacer" type="Label" parent="Vbox/HBoxContainer/LeadTracks"]
+layout_mode = 2
+text = "                                                      "
+horizontal_alignment = 1
+
+[node name="Samples" type="HBoxContainer" parent="Vbox"]
+layout_mode = 2
+alignment = 1
+
+[node name="SampleBox1" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
+layout_mode = 2
 
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track2" to="." method="_on_track_button_up" binds= [0, 1]]
