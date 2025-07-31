@@ -10,3 +10,4 @@ texture = ExtResource("1_cq8v5")
 script = ExtResource("3_ex5jh")
 
 [node name="Timer" type="Timer" parent="Weapon"]
+wait_time = 0.5
