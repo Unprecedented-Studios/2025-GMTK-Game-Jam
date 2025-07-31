@@ -12,7 +12,9 @@ script = ExtResource("1_v1peb")
 [node name="EnemyList" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_lwbmw")
-enemyTypes = Array[PackedScene]([ExtResource("2_b5n37"), ExtResource("3_lwbmw")])
+types = Array[PackedScene]([ExtResource("2_b5n37"), ExtResource("3_lwbmw")])
+firstWave = Array[int]([1, 2])
+levelMultiplier = Array[int]([5, 1])
 
 [node name="CurrentWave" type="Node" parent="."]
 unique_name_in_owner = true

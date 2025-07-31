@@ -1,3 +1,5 @@
 extends Node
 
-@export var enemyTypes: Array[PackedScene] = []
+@export var types: Array[PackedScene] = []
+@export var firstWave: Array[int] = []
+@export var levelMultiplier: Array[int] = []

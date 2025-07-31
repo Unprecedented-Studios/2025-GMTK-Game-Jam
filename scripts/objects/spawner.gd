@@ -4,11 +4,15 @@ extends Node
 @export var spawnPoints:Array[Marker2D] = []
 
 func _ready():
-	spawn_something();
+	WaveState.started.connect(_on_wave_start);
 	
 func spawn_something():
 	var enemy = WaveState.get_enemy()
-	var enemy_spawn = enemy.instantiate();
-	var spawn_point = spawnPoints.pick_random();
-	spawn_point.add_child(enemy_spawn)
-	get_tree().create_timer(randf_range(spawn_interval_min, spawn_interval_max)).timeout.connect(spawn_something)
+	if enemy: 
+		var enemy_spawn = enemy.instantiate();
+		var spawn_point = spawnPoints.pick_random();
+		spawn_point.add_child(enemy_spawn)
+		get_tree().create_timer(randf_range(spawn_interval_min, spawn_interval_max)).timeout.connect(spawn_something)
+
+func _on_wave_start():
+	spawn_something()

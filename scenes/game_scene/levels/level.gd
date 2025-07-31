@@ -23,8 +23,13 @@ func open_tutorials() -> void:
 
 func _ready() -> void:
 	level_state = GameState.get_level_state(scene_file_path)
-	if not level_state.tutorial_read:
+	if false && not level_state.tutorial_read:
 		open_tutorials()
+	else:
+		start_wave()
 
 func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
+
+func start_wave():
+	WaveState.start_wave();
