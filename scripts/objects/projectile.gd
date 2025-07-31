@@ -13,11 +13,10 @@ func _ready():
 		Looper.lead_attacks.FAST:
 			damage /= 5
 		Looper.lead_attacks.PIERCE:
-			damage /= 2
+			damage -= 1
 			_pierce = true;
 		Looper.lead_attacks.MULTI:
 			damage /= 4
-			
 	
 	match Looper.playing_drum_attack:
 		Looper.drum_attacks.SLOW:
@@ -53,9 +52,9 @@ func _on_area_2d_body_entered(body):
 				body.take_damage(_damage_info);
 				_hitEnemy.set(body, true)
 				_damage_info.damage -= 1;
-				if (_damage_info.damage == 0):
+				scale *= max(1, _damage_info.damage*.25)
+				if (_damage_info.damage <= 0):
 					queue_free()
-					scale *= max(1, _damage_info.damage*.25)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
