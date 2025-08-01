@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccg4hitjbm01k"]
+[gd_scene load_steps=4 format=3 uid="uid://ccg4hitjbm01k"]
 
 [ext_resource type="Script" uid="uid://cs5xt622fde26" path="res://scripts/objects/player.gd" id="1_a8lix"]
+[ext_resource type="Texture2D" uid="uid://dkvrb31etcsi5" path="res://assets/temp_assets/DJBooth.png" id="2_2147m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_waojt"]
 size = Vector2(115.5, 815.5)
@@ -11,17 +12,24 @@ collision_mask = 0
 script = ExtResource("1_a8lix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-604.75, -346.25)
 shape = SubResource("RectangleShape2D_waojt")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-663, -64)
-color = Color(0.27451, 0.0666667, 1, 1)
-polygon = PackedVector2Array(-11, -690, 116, -694, 118, 132, 1, 132)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -674.0
+offset_top = -679.0
+offset_right = -546.0
+offset_bottom = -369.0
+texture = ExtResource("2_2147m")
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -650.0
-offset_right = 631.0
-offset_bottom = 27.0
-show_percentage = false
+modulate = Color(0, 1, 0, 1)
+offset_left = -669.0
+offset_top = -676.0
+offset_right = -550.0
+offset_bottom = -649.0
+tooltip_text = "Player Health"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+value = 100.0

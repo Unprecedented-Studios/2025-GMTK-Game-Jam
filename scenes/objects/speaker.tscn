@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://bxqb2ad4fwn4o" path="res://scripts/weapons/basic_weapon.gd" id="3_ex5jh"]
 
 [node name="Image" type="Sprite2D"]
+position = Vector2(-6, 28)
 texture = ExtResource("1_cq8v5")
-offset = Vector2(0, -20)
 
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource("3_ex5jh")
