@@ -71,7 +71,21 @@ func _process(delta: float) -> void:
 		$SampleButton.disabled = false
 
 func set_text(new_text:String = "Sample"): 
-	$SampleButton.text = registered_key + " - " + new_text
+	var explainer_text:String = ""
+	
+	for i in damage_info.effects.size():
+		if damage_info.effects[i] == effect_types.SLOW:
+			explainer_text += "Slows "
+		elif damage_info.effects[i] == effect_types.PIERCE:
+			explainer_text += "Pierces "
+		elif damage_info.effects[i] == effect_types.DOT:
+			explainer_text += "DOTs "
+		if i < damage_info.effects.size()-1:
+			explainer_text += "and "
+	
+	explainer_text += "Enemies"
+	$SampleButton.text = registered_key + " - " + new_text + "\n"\
+	+ explainer_text
 
 func play_sound():
 	Looper.sample_attack(damage_info)

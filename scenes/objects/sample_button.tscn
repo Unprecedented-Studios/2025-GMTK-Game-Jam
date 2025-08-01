@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwlewe1pjqio4"]
+[gd_scene load_steps=4 format=3 uid="uid://bwlewe1pjqio4"]
 
 [ext_resource type="Script" uid="uid://bpfmjojftekfg" path="res://scripts/objects/sample_button.gd" id="1_1ym4b"]
-[ext_resource type="Texture2D" uid="uid://cfxe5aftuark" path="res://assets/icons/track_icon.png" id="1_siflk"]
 [ext_resource type="Texture2D" uid="uid://qv6cqpmhawto" path="res://assets/dj_deck/sample_audio_bar.png" id="2_dnc8p"]
 [ext_resource type="AudioStream" uid="uid://cixuhjal6uhpi" path="res://assets/samples/Noise_Sweep_1.mp3" id="4_hnghc"]
 
@@ -9,10 +8,10 @@
 script = ExtResource("1_1ym4b")
 
 [node name="SampleButton" type="Button" parent="."]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Q - Noise_Sweep"
-icon = ExtResource("1_siflk")
+alignment = 0
 icon_alignment = 1
 vertical_icon_alignment = 0
 

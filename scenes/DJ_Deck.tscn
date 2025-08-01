@@ -15,10 +15,26 @@ anchors_preset = 0
 theme = ExtResource("8_af4r3")
 script = ExtResource("1_gefnp")
 
+[node name="Synced_Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_af4r3")
+theme_override_font_sizes/font_size = 72
+text = "Loops Synced!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Vbox" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 352.0
+offset_right = 1260.0
+offset_bottom = 394.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Vbox"]
@@ -27,9 +43,11 @@ alignment = 1
 
 [node name="DrumNBassTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="Vbox/HBoxContainer/DrumNBassTracks"]
+custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Drum Loops"
@@ -42,7 +60,8 @@ Standard Attack
 
 1 or L-UP"
 theme = ExtResource("8_af4r3")
-text = "1 - Four on the Floor"
+text = "1 - Four on the Floor
+Powerful Shots"
 icon = ExtResource("2_535jm")
 alignment = 0
 
@@ -53,7 +72,8 @@ Slow down the enemies
 
 1 or L-RIGHT"
 theme = ExtResource("8_af4r3")
-text = "2 - Half Time"
+text = "2 - Half Time
+Shots Slow Enemies"
 icon = ExtResource("3_535jm")
 alignment = 0
 
@@ -64,7 +84,8 @@ Does AOE
 
 3 or L-DOWN"
 theme = ExtResource("8_af4r3")
-text = "3 - Groovy"
+text = "3 - Groovy
+Shots do AOE"
 icon = ExtResource("3_535jm")
 alignment = 0
 
@@ -75,14 +96,10 @@ Damange them over time
 
 4 or R-DOWN"
 theme = ExtResource("8_af4r3")
-text = "4 - Syncopated"
+text = "4 - Syncopated
+Shots Apply DOT"
 icon = ExtResource("3_535jm")
 alignment = 0
-
-[node name="Spacer" type="Label" parent="Vbox/HBoxContainer/DrumNBassTracks"]
-layout_mode = 2
-text = "                                                      "
-horizontal_alignment = 1
 
 [node name="DrumNBassRing" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -116,9 +133,11 @@ tint_progress = Color(0, 1, 1, 1)
 
 [node name="LeadTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="Vbox/HBoxContainer/LeadTracks"]
+custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 theme = ExtResource("8_af4r3")
 theme_override_font_sizes/font_size = 24
@@ -132,7 +151,8 @@ Standard Attack
 
 5 or R-UP"
 theme = ExtResource("8_af4r3")
-text = "5 - Plucky"
+text = "5 - Plucky
+Powerful Shots"
 icon = ExtResource("2_535jm")
 alignment = 0
 
@@ -143,7 +163,8 @@ Go right through enemies
 
 6 or R-RIGHT"
 theme = ExtResource("8_af4r3")
-text = "6 - Legato"
+text = "6 - Legato 
+Shots Pierces Enemies"
 icon = ExtResource("3_535jm")
 alignment = 0
 
@@ -154,7 +175,8 @@ More hits
 
 7 or L-DOWN"
 theme = ExtResource("8_af4r3")
-text = "7 - Chords"
+text = "7 - Chords
+Multi-shot"
 icon = ExtResource("3_535jm")
 alignment = 0
 
@@ -165,14 +187,10 @@ Fast attacks
 
 8 or R-RIGHT"
 theme = ExtResource("8_af4r3")
-text = "8 - Arpeggiated"
+text = "8 - Arpeggiated  - 
+Faster Shots"
 icon = ExtResource("3_535jm")
 alignment = 0
-
-[node name="Spacer" type="Label" parent="Vbox/HBoxContainer/LeadTracks"]
-layout_mode = 2
-text = "                                                      "
-horizontal_alignment = 1
 
 [node name="Samples" type="HBoxContainer" parent="Vbox"]
 layout_mode = 2
@@ -204,22 +222,6 @@ registered_key = "R"
 effect = Array[int]([0, 2])
 damage_amount = 10.0
 sample_name = "Record_Scratch"
-
-[node name="Synced_Text" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 99.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("8_af4r3")
-theme_override_font_sizes/font_size = 72
-text = "Loops Synced!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track2" to="." method="_on_track_button_up" binds= [0, 1]]
