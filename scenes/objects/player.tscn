@@ -12,24 +12,40 @@ collision_mask = 0
 script = ExtResource("1_a8lix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-604.75, -346.25)
+position = Vector2(6.25, 161.75)
 shape = SubResource("RectangleShape2D_waojt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -674.0
-offset_top = -679.0
-offset_right = -546.0
-offset_bottom = -369.0
+offset_left = -63.0
+offset_top = -171.0
+offset_right = 65.0
+offset_bottom = 139.0
 texture = ExtResource("2_2147m")
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 modulate = Color(0, 1, 0, 1)
-offset_left = -669.0
-offset_top = -676.0
-offset_right = -550.0
-offset_bottom = -649.0
+offset_left = -58.0
+offset_top = -168.0
+offset_right = 61.0
+offset_bottom = -141.0
 tooltip_text = "Player Health"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 value = 100.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -57.0
+offset_top = -141.0
+offset_right = -10.0
+offset_bottom = -118.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Wave:"
+
+[node name="WaveNumberLabel" type="Label" parent="Label"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 51.0
+offset_right = 91.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
