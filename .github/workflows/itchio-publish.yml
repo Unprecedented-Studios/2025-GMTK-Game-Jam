@@ -28,25 +28,25 @@ jobs:
       - name: Move Build
         run: "mv ${{ steps.export.outputs.build_directory }}/gmtk-game-jam-2025 ./build"
         
-      - name: Compress wasm
-        # You may pin to the exact commit or the version.
-        # uses: ThiagoJaweb/ghaction-CompressFiles@23278320ded41f5b5c203a4aef7e69789b044336
-        uses: StefH/ghaction-CompressFiles@v1
-        with:
-          # The path
-          path: ./build # default is .
-          # The file extensions to compress.
-          extensions: '.wasm' # optional, default is .js,.css,.html,.json
-          # The compression utility to use.
-          tools: 'brotli' # optional, default is brotli,gzip
-          # Maximum folder depth to process
-          depth: 3 # optional, default is 3
+#      - name: Compress wasm
+#        # You may pin to the exact commit or the version.
+#        # uses: ThiagoJaweb/ghaction-CompressFiles@23278320ded41f5b5c203a4aef7e69789b044336
+#        uses: StefH/ghaction-CompressFiles@v1
+#        with:
+#          # The path
+#          path: ./build # default is .
+#          # The file extensions to compress.
+#          extensions: '.wasm' # optional, default is .js,.css,.html,.json
+#          # The compression utility to use.
+#          tools: 'brotli' # optional, default is brotli,gzip
+#          # Maximum folder depth to process
+#          depth: 3 # optional, default is 3
 
-      - name: Remove Old WASM
-        run: "rm ./build/index.wasm"
+#      - name: Remove Old WASM
+#        run: "rm ./build/index.wasm"
 
-      - run: "sed -i -e 's/\\.wasm/\\.wasm.br/g' ./build/index.html"
-      - run: "sed -i -e 's/\\.wasm`/\\.wasm.br`/g' ./build/index.js"
+#      - run: "sed -i -e 's/\\.wasm/\\.wasm.br/g' ./build/index.html"
+#      - run: "sed -i -e 's/\\.wasm`/\\.wasm.br`/g' ./build/index.js"
       
       - name: Zip For Release
         uses: TheDoctor0/zip-release@0.7.6
