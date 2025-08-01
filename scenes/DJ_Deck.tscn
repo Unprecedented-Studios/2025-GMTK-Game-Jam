@@ -42,7 +42,7 @@ alignment = 1
 [node name="Label" type="Label" parent="Vbox/HBoxContainer/DrumNBassTracks"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Drum Loops"
 horizontal_alignment = 1
 
@@ -133,7 +133,7 @@ alignment = 1
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 theme = ExtResource("8_af4r3")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Lead Loops"
 horizontal_alignment = 1
 
