@@ -3,7 +3,12 @@ class_name  SampleBox
 
 enum sample_effect {damage}
 var sample_preloads:Dictionary = {\
-	"Noise_Sweep_1":preload("res://assets/samples/Noise_Sweep_1.mp3")}
+	"Noise_Sweep":preload("res://assets/samples/Noise_Sweep_1.mp3"),
+	"Big_Explosion":preload("res://assets/samples/Big_Explosion.mp3"),
+	"Glitches":preload("res://assets/samples/Glitches.mp3"),
+	"Growl":preload("res://assets/samples/Growl.mp3"),
+	"Record_Scratch":preload("res://assets/samples/Record_Scratch.mp3")
+	}
 	
 @export var registered_key:String = "Q"
 var cooldown:float = 8.0

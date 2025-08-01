@@ -11,7 +11,7 @@ script = ExtResource("1_1ym4b")
 [node name="SampleButton" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Q - Noise_Sweep_1"
+text = "Q - Noise_Sweep"
 icon = ExtResource("1_siflk")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -26,5 +26,6 @@ tint_under = Color(1, 1, 1, 0.0666667)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hnghc")
+bus = &"Samples"
 
 [connection signal="pressed" from="SampleButton" to="." method="_on_sample_button_down"]
