@@ -23,12 +23,15 @@ func _ready():
 	
 	match Looper.playing_drum_attack:
 		Looper.drum_attacks.SLOW:
+			_damage_info.type = DamageInfo.damage_types.ICE
 			_damage_info.effects.push_back(DamageInfo.effect_types.SLOW);
 			modulate.r = 0
 		Looper.drum_attacks.DOT:
+			_damage_info.type = DamageInfo.damage_types.POISON
 			_damage_info.effects.push_back(DamageInfo.effect_types.DOT);
 			modulate.g = 0
 		Looper.drum_attacks.AOE:
+			_damage_info.type = DamageInfo.damage_types.FIRE
 			_explode = true;
 			modulate.g = 0.5;
 			modulate.b = 0;

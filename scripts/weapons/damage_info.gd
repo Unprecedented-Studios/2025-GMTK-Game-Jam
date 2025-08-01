@@ -6,7 +6,9 @@ enum damage_types {
 	AIR,
 	WATER,
 	FIRE,
-	EARTH
+	EARTH,
+	ICE,
+	POISON
 }
 
 enum effect_types {
