@@ -1,23 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://1ua2kqju53jh"]
 
-[ext_resource type="Texture2D" uid="uid://j58ur4884bdv" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile275.png" id="1_wocet"]
+[ext_resource type="Texture2D" uid="uid://bhby8liyp6e7j" path="res://assets/note.png" id="1_aqr3w"]
 [ext_resource type="Script" uid="uid://bjtdvmkktufac" path="res://scripts/objects/projectile.gd" id="2_irr35"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aqr3w"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_irr35"]
+radius = 9.05538
 
 [node name="BasicProjectile" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_wocet")
+position = Vector2(1, -1.33333)
+scale = Vector2(1.33333, 1.33333)
+texture = ExtResource("1_aqr3w")
 script = ExtResource("2_irr35")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_mask = 5
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_aqr3w")
+shape = SubResource("CircleShape2D_irr35")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
