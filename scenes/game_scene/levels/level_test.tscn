@@ -15,20 +15,20 @@ script = ExtResource("1_cuwy1")
 
 [node name="Background" parent="." instance=ExtResource("2_cuwy1")]
 
-[node name="Speaker" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(120, 265)
-
 [node name="PlayerArea" parent="." instance=ExtResource("5_lwcio")]
-position = Vector2(650, 697)
+position = Vector2(675, 680)
+
+[node name="Speaker" parent="." instance=ExtResource("1_waojt")]
+position = Vector2(160, 275)
 
 [node name="Speaker2" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 195)
+position = Vector2(160, 205)
 
 [node name="Speaker3" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 125)
+position = Vector2(160, 125)
 
 [node name="Speaker4" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 55)
+position = Vector2(160, 45)
 
 [node name="Spawner" parent="." instance=ExtResource("4_lwcio")]
 position = Vector2(1350, 0)
