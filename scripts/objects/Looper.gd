@@ -41,8 +41,8 @@ var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 
 func _ready():
-	pass
-	#play()
+	#pass
+	play()
 	#play(0)
 	#play(1)
 
@@ -59,7 +59,7 @@ func play_with_check():
 	if current_beat_int != last_beat_int:
 		deck_beats[0] += 1
 		deck_beats[1] += 1
-		print("current_beat: %s-%s-%s		deck_one: %s		deck_two: %s" % [current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1,deck_beats[0],deck_beats[1]])
+		#print("current_beat: %s-%s-%s		deck_one: %s		deck_two: %s" % [current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1,deck_beats[0],deck_beats[1]])
 		if current_beat_int % 4 == 0:
 			for i in 2:
 				if deck_queued[i]:

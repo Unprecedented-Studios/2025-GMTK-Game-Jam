@@ -4,8 +4,9 @@ extends CharacterBody2D
 @export var damage: int = 10;
 
 @onready var health_bar = %HealthProgress
-
 @onready var current_speed = speed;
+
+signal dying(CharacterBody2D)
 
 var _dotDamage:float = 0;
 
@@ -26,7 +27,7 @@ func _physics_process(_delta):
 			var damage_info = DamageInfo.new()
 			damage_info.damage = damage
 			collider.take_damage(damage_info)
-			queue_free()
+			_die()
 
 func take_damage(info: DamageInfo):
 	if (info.effects.has(DamageInfo.effect_types.DOT)):
@@ -35,8 +36,8 @@ func take_damage(info: DamageInfo):
 		health -= info.damage;	
 		health_bar.value = health;
 		if (health <= 0):
-			queue_free();
-		
+			_die()
+
 	if (info.effects.has(DamageInfo.effect_types.SLOW)):
 		current_speed = speed / 2
 
@@ -47,3 +48,7 @@ func _on_beat(_beat_counter,_note, _count):
 		damageInfo.type = DamageInfo.damage_types.POISON
 		damageInfo.damage = _dotDamage
 		take_damage(damageInfo);
+
+func _die():
+	dying.emit(self);
+	queue_free();

@@ -4,10 +4,10 @@ extends Node
 @export var spawnPoints:Array[Marker2D] = []
 
 func _ready():
-	WaveState.started.connect(_on_wave_start);
+	GameStateController.started.connect(_on_wave_start);
 	
 func spawn_something():
-	var enemy = WaveState.get_enemy()
+	var enemy = GameStateController.get_enemy()
 	if enemy: 
 		var spawn_point = spawnPoints.pick_random();
 		spawn_point.spawn_enemy(enemy);

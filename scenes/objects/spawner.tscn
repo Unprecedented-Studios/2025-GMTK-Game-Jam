@@ -10,13 +10,13 @@ spawn_interval_max = 0.75
 spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2"), NodePath("Spawn3"), NodePath("Spawn4")]
 
 [node name="Spawn1" parent="." instance=ExtResource("2_jobsr")]
-position = Vector2(0, 255)
+position = Vector2(0, 257)
 
 [node name="Spawn2" parent="." instance=ExtResource("2_jobsr")]
-position = Vector2(0, 185)
+position = Vector2(0, 186)
 
 [node name="Spawn3" parent="." instance=ExtResource("2_jobsr")]
-position = Vector2(0, 115)
+position = Vector2(0, 116)
 
 [node name="Spawn4" parent="." instance=ExtResource("2_jobsr")]
 position = Vector2(0, 45)

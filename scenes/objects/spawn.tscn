@@ -11,7 +11,7 @@ script = ExtResource("1_cqs8j")
 
 [node name="SpawnArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_mask = 0
+collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]

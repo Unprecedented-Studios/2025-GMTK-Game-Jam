@@ -9,7 +9,7 @@ var _multiShot = 0;
 var _measure_length = 0.5;
 
 func _ready():
-	WaveState.started.connect(_on_wave_start);
+	GameStateController.started.connect(_on_wave_start);
 
 func _fire_projectile(offset: Vector2 = Vector2(0,0) ):
 	var new_projectile = projectile.instantiate();

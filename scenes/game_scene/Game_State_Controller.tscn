@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://5rvq8e6ad7wh"]
 
-[ext_resource type="Script" uid="uid://n0ykn5y44rua" path="res://scripts/waves/wave_state.gd" id="1_v1peb"]
+[ext_resource type="Script" uid="uid://n0ykn5y44rua" path="res://scripts/waves/game_state_controller.gd" id="1_v1peb"]
 [ext_resource type="PackedScene" uid="uid://dvp4xtd6mubsq" path="res://scenes/enemies/basic_enemy.tscn" id="2_b5n37"]
 [ext_resource type="Script" uid="uid://c6baq7nfhhho2" path="res://scripts/waves/enemy_list.gd" id="2_lwbmw"]
 [ext_resource type="PackedScene" uid="uid://c0ats68u4sdfn" path="res://scenes/enemies/big_enemy.tscn" id="3_lwbmw"]
 [ext_resource type="Script" uid="uid://doqo3t2gjpopb" path="res://scripts/waves/wave_info.gd" id="4_3p5tp"]
 
-[node name="WaveState" type="Node"]
+[node name="GameStateController" type="Node"]
 script = ExtResource("1_v1peb")
 
 [node name="EnemyList" type="Node" parent="."]

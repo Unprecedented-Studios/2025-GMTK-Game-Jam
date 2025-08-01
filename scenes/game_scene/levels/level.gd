@@ -32,4 +32,4 @@ func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
 
 func start_wave():
-	WaveState.start_wave();
+	GameStateController.start_wave();

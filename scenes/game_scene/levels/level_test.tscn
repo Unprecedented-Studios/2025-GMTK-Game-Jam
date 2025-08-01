@@ -13,16 +13,16 @@ size = Vector2(1635.5, 183)
 script = ExtResource("1_cuwy1")
 
 [node name="Speaker" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(120, 265)
+position = Vector2(120, 280)
 
 [node name="PlayerArea" parent="." instance=ExtResource("5_lwcio")]
 position = Vector2(650, 697)
 
 [node name="Speaker2" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 195)
+position = Vector2(119, 205)
 
 [node name="Speaker3" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(119, 125)
+position = Vector2(119, 130)
 
 [node name="Speaker4" parent="." instance=ExtResource("1_waojt")]
 position = Vector2(119, 55)

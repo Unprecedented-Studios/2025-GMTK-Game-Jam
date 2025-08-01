@@ -10,5 +10,5 @@ func _ready():
 func take_damage(info: DamageInfo):
 	health -= info.damage;
 	health_bar.value = health;
-	if (health <= 0):
-		queue_free();
+	#if (health <= 0):
+		#queue_free();

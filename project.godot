@@ -22,7 +22,7 @@ SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loa
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 Looper="*res://scenes/game_scene/Looper.tscn"
-WaveState="*res://scenes/game_scene/Wave_State.tscn"
+GameStateController="*res://scenes/game_scene/Game_State_Controller.tscn"
 
 [display]
 
