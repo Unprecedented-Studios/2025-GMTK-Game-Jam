@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 class_name  SampleBox
 
 
@@ -56,19 +56,20 @@ var damage_info:DamageInfo = DamageInfo.new()
 	set(new_sample_name):
 		var new_stream:AudioStreamMP3 = AudioStreamMP3.new()
 		new_stream = sample_preloads[new_sample_name]
-		$AudioStreamPlayer.stream = new_stream 
+		$Hbox/AudioStreamPlayer.stream = new_stream 
 		set_text(new_sample_name)
+
 
 
 var drop_amount:float = 0.0
 func _process(delta: float) -> void:
-	if $TextureProgressBar.value > 0.0:
+	if $Hbox/TextureProgressBar.value > 0.0:
 		drop_amount += 100 * (delta/cooldown)
 		if drop_amount >= .01:
-			$TextureProgressBar.value -= drop_amount
+			$Hbox/TextureProgressBar.value -= drop_amount
 			drop_amount = 0.0
-	elif $SampleButton.disabled:
-		$SampleButton.disabled = false
+	elif $Hbox/SampleButton.disabled:
+		$Hbox/SampleButton.disabled = false
 
 func set_text(new_text:String = "Sample"): 
 	var explainer_text:String = ""
@@ -84,7 +85,7 @@ func set_text(new_text:String = "Sample"):
 			explainer_text += "and "
 	
 	explainer_text += "Enemies"
-	$SampleButton.text = registered_key + " - " + new_text + "\n"\
+	$Hbox/SampleButton.text = registered_key + " - " + new_text + "\n"\
 	+ explainer_text
 
 func play_sound():
@@ -92,13 +93,17 @@ func play_sound():
 
 
 func _on_sample_button_down() -> void:
-	$AudioStreamPlayer.play()
-	$TextureProgressBar.value = 100.0
-	$SampleButton.disabled = true
-	Looper.sample_attack(damage_info)
+	$Hbox/AudioStreamPlayer.play()
+	$Hbox/TextureProgressBar.value = 100.0
+	$Hbox/SampleButton.disabled = true
+	Looper.sample_attack(damage_info,self)
+
+signal display_accuracy(text:String)
+func return_accuracy(text:String):
+	display_accuracy.emit(text)
 	
 func _input(event: InputEvent) -> void:
-	if not $SampleButton.disabled:
+	if not $Hbox/SampleButton.disabled:
 		if event.is_action_pressed("sample_1") and registered_key == "Q":
 			play_sound()
 		if event.is_action_pressed("sample_2") and registered_key == "W":

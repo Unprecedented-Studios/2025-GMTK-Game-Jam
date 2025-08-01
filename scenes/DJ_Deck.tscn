@@ -19,30 +19,15 @@ script = ExtResource("1_gefnp")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1280.0
-offset_bottom = 405.0
+offset_bottom = 420.0
 texture = ExtResource("3_55qdq")
-
-[node name="Synced_Text" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 99.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("8_af4r3")
-theme_override_font_sizes/font_size = 72
-text = "Loops Synced!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Vbox" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 10.0
+offset_top = 5.0
 offset_right = 1270.0
-offset_bottom = 394.0
+offset_bottom = 399.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Vbox"]
@@ -231,6 +216,20 @@ effect = Array[int]([0, 1])
 damage_amount = 7.0
 sample_name = "Record_Scratch"
 
+[node name="Synced_Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_top = 240.0
+offset_right = 1280.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_af4r3")
+theme_override_font_sizes/font_size = 72
+text = "Loops Synced!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track2" to="." method="_on_track_button_up" binds= [0, 1]]
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track3" to="." method="_on_track_button_up" binds= [0, 2]]
@@ -239,3 +238,7 @@ sample_name = "Record_Scratch"
 [connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track2" to="." method="_on_track_button_up" binds= [1, 1]]
 [connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track3" to="." method="_on_track_button_up" binds= [1, 2]]
 [connection signal="button_up" from="Vbox/HBoxContainer/LeadTracks/Track4" to="." method="_on_track_button_up" binds= [1, 3]]
+[connection signal="display_accuracy" from="Vbox/Samples/SampleBox1" to="." method="display_text"]
+[connection signal="display_accuracy" from="Vbox/Samples/SampleBox2" to="." method="display_text"]
+[connection signal="display_accuracy" from="Vbox/Samples/SampleBox3" to="." method="display_text"]
+[connection signal="display_accuracy" from="Vbox/Samples/SampleBox4" to="." method="display_text"]

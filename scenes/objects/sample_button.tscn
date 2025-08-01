@@ -4,10 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://qv6cqpmhawto" path="res://assets/dj_deck/sample_audio_bar.png" id="2_dnc8p"]
 [ext_resource type="AudioStream" uid="uid://cixuhjal6uhpi" path="res://assets/samples/Noise_Sweep_1.mp3" id="4_hnghc"]
 
-[node name="SampleBox" type="HBoxContainer"]
+[node name="SampleBox" type="VBoxContainer"]
+offset_left = 285.0
+offset_right = 561.0
+offset_bottom = 130.0
 script = ExtResource("1_1ym4b")
 
-[node name="SampleButton" type="Button" parent="."]
+[node name="Hbox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SampleButton" type="Button" parent="Hbox"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Q - Noise_Sweep"
@@ -15,7 +21,7 @@ alignment = 0
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Hbox"]
 layout_mode = 2
 step = 0.01
 fill_mode = 3
@@ -23,8 +29,8 @@ texture_under = ExtResource("2_dnc8p")
 texture_progress = ExtResource("2_dnc8p")
 tint_under = Color(1, 1, 1, 0.0666667)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Hbox"]
 stream = ExtResource("4_hnghc")
 bus = &"Samples"
 
-[connection signal="pressed" from="SampleButton" to="." method="_on_sample_button_down"]
+[connection signal="pressed" from="Hbox/SampleButton" to="Hbox" method="_on_sample_button_down"]

@@ -35,7 +35,11 @@ func display_synced(synced:bool):
 	elif not synced:
 		$Synced_Text.text = "Loops out of sync"
 		$Synced_Text.modulate.a = 1
-			
+		
+func display_text(text:String):
+	$Synced_Text.text = text
+	$Synced_Text.modulate.a = 1
+
 	
 func beat_flash(_main_beat:int, _measure_beat:int, _loop_beat:int):
 	if looper.flashy:

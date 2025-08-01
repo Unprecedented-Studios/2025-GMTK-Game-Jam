@@ -35,7 +35,7 @@ func take_damage(info: DamageInfo):
 		_dotDamage += info.damage;
 		$BloodParticles.emitting= true
 	else:
-		health -= info.damage;	
+		health -= info.damage;
 		health_bar.value = health;
 		if (health <= 0):
 			_die()

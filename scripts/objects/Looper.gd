@@ -121,5 +121,21 @@ func start_background_music():
 
 signal sample_triggered(damage_info:DamageInfo)
 enum sample_attacks {STANDARD, SLOW, AOE, DOT, PIERCE, MULTI, FAST}
-func sample_attack(damage_info:DamageInfo):
-	sample_triggered.emit(damage_info)
+
+func sample_attack(damage_info:DamageInfo,button:SampleBox):
+	var accuracy:float = abs(current_beat - round(current_beat))
+	var accuracy_text:String = ""
+	var damage_mod: float = 1.0
+	if accuracy < .05:
+		accuracy_text = "Perfect!"
+		damage_mod = 2.0
+	elif accuracy < .1:
+		accuracy_text = "Great!"
+		damage_mod = 1.5
+	elif accuracy < .15:
+		accuracy_text = "Not Bad!"
+		damage_mod = 1.2
+	else:
+		accuracy_text = "Meh"
+	button.return_accuracy(accuracy_text)
+	sample_triggered.emit(damage_info, damage_mod)
