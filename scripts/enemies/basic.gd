@@ -30,8 +30,10 @@ func _physics_process(_delta):
 			_die()
 
 func take_damage(info: DamageInfo):
+	$HitParticles.emitting = true
 	if (info.effects.has(DamageInfo.effect_types.DOT)):
 		_dotDamage += info.damage;
+		$BloodParticles.emitting= true
 	else:
 		health -= info.damage;	
 		health_bar.value = health;
@@ -40,6 +42,7 @@ func take_damage(info: DamageInfo):
 
 	if (info.effects.has(DamageInfo.effect_types.SLOW)):
 		current_speed = speed / 2
+		modulate = Color.CORNFLOWER_BLUE
 
 var score: bool:
 	get: 

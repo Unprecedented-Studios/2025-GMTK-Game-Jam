@@ -25,3 +25,29 @@ offset_top = 24.0
 offset_right = 24.0
 offset_bottom = 36.0
 show_percentage = false
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+emission_shape = 3
+emission_rect_extents = Vector2(12, 16)
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+scale_amount_max = 3.0
+color = Color(1, 0, 0, 1)
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 7.86
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
