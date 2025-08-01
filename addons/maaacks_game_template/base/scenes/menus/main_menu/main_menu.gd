@@ -37,10 +37,9 @@ func _input(event : InputEvent) -> void:
 	if event.is_action_released("ui_cancel"):
 		if sub_menu:
 			_close_sub_menu()
-		else:
-			get_tree().quit()
 	if event.is_action_released("ui_accept") and get_viewport().gui_get_focus_owner() == null:
 		%MenuButtonsBoxContainer.focus_first()
+		
 
 func _hide_exit_for_web() -> void:
 	if OS.has_feature("web"):

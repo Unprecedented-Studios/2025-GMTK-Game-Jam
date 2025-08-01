@@ -27,13 +27,13 @@ Below is an example of reacting to `SceneLoader` signals to open the loaded scen
 SceneLoader.load_scene(path_to_scene, true)
 await SceneLoader.scene_loaded
 if container:
-    # Has a container, so will open the loaded scene in it
-    var resource = SceneLoader.get_resource()
-    var instance = resource.instantiate()
-    container.add_child(instance)
+	# Has a container, so will open the loaded scene in it
+	var resource = SceneLoader.get_resource()
+	var instance = resource.instantiate()
+	container.add_child(instance)
 else:
-    # Has no container, so will switch to the loaded scene
-    SceneLoader.change_scene_to_resource()
+	# Has no container, so will switch to the loaded scene
+	SceneLoader.change_scene_to_resource()
 ```
 
 ### On User Input or a Timed Event
@@ -46,7 +46,7 @@ Below is an example of starting the load of the next scene.
 
 ```
 func _ready() -> void:
-    # Immediately starting to load the next scene in the background
+	# Immediately starting to load the next scene in the background
 	SceneLoader.load_scene(path_to_scene, true)
 ```
 
@@ -54,11 +54,11 @@ Below is an example of reacting to the player's input to either show the next sc
 
 ```
 func _unhandled_input(event : InputEvent) -> void:
-    var status = SceneLoader.get_status()
-    if status != ResourceLoader.THREAD_LOAD_LOADED:
-        # Resource is not loaded, so show the loading screen
-        SceneLoader.change_scene_to_loading_screen()
-    else:
-        # Resource is loaded, so switch to the loaded scene
-        SceneLoader.change_scene_to_resource()
+	var status = SceneLoader.get_status()
+	if status != ResourceLoader.THREAD_LOAD_LOADED:
+		# Resource is not loaded, so show the loading screen
+		SceneLoader.change_scene_to_loading_screen()
+	else:
+		# Resource is loaded, so switch to the loaded scene
+		SceneLoader.change_scene_to_resource()
 ```

@@ -1,7 +1,7 @@
 extends MainMenu
 
 @export var level_select_packed_scene: PackedScene
-@export var confirm_new_game : bool = true
+@export var confirm_new_game : bool = false
 
 var level_select_scene : Node
 var animation_state_machine : AnimationNodeStateMachinePlayback
@@ -57,7 +57,8 @@ func _add_level_select_if_set() -> void:
 	%LevelSelectButton.show()
 
 func _show_continue_if_set() -> void:
-	if GameState.has_game_state():
+	#added false and to prevent continue from showing
+	if false and GameState.has_game_state():
 		%ContinueGameButton.show()
 
 func _ready() -> void:
