@@ -25,7 +25,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
 
-        
       - name: Move Build
         run: "mv ${{ steps.export.outputs.build_directory }}/gmtk-game-jam-2025 ./build"
         
@@ -46,10 +45,6 @@ jobs:
       - name: Remove Old WASM
         run: "rm ./build/index.wasm"
 
-      - name: list game files
-        if: always()
-        run: "ls -lR ./build"
-
       - run: "sed -i -e 's/\\.wasm/\\.wasm.br/g' ./build/index.html"
       - run: "sed -i -e 's/\\.wasm`/\\.wasm.br`/g' ./build/index.js"
       
@@ -58,10 +53,6 @@ jobs:
         with:
           filename: gmtk-game-jam-2025.zip
           directory: ./build
-      
-    
-      - name: list files
-        run: "ls -lR ./build"
         
       - name: Publish to Itch
         uses: Ayowel/butler-to-itch@v1.2.0
