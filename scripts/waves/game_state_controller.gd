@@ -5,6 +5,7 @@ signal started
 signal complete
 
 var waveCount = 0;
+var score = 0;
 var _enemyList: Dictionary = {}
 
 @export var timeBetweenWaves: float = 5;
@@ -13,6 +14,7 @@ var _enemyList: Dictionary = {}
 
 func start_wave():
 	waveCount += 1
+	score = 0;
 	currentWave.createWave(waveCount)
 	print("Wave %s Started" % [waveCount])
 	emit_signal("started");
@@ -31,6 +33,9 @@ func _check_last_enemy_died(enemy):
 	#print("Enemy Died %s left" % [_enemyList.size()])
 	if _enemyList.is_empty():
 		endWave();
+
+func score_enemy(enemy):
+	score += enemy.points
 
 func endWave():
 	if currentWave.complete && _enemyList.is_empty():

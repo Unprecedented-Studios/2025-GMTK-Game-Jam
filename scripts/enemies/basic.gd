@@ -41,6 +41,9 @@ func take_damage(info: DamageInfo):
 	if (info.effects.has(DamageInfo.effect_types.SLOW)):
 		current_speed = speed / 2
 
+var score: bool:
+	get: 
+		return health / 10;
 		
 func _on_beat(_beat_counter,_note, _count):
 	if _dotDamage > 0:
