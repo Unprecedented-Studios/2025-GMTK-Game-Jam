@@ -6,6 +6,8 @@ class_name Loops
 
 enum drum_attacks {STANDARD, SLOW, AOE, DOT}
 enum lead_attacks {STANDARD, PIERCE, MULTI, FAST}
+#enum sample_attacks {STANDARD, SLOW, AOE, DOT, PIERCE, MULTI, FAST}
+
 
 signal drum_attack_changed(new_attack:drum_attacks)
 signal lead_attack_changed(new_attack:lead_attacks)
@@ -30,7 +32,7 @@ signal beat(beat_number:int, measure:int, sixteen: int)
 var deck_queued:Array[bool] = [false,false]
 var deck_queued_track:Array[int] = [0,0]
 var playing_drum_attack = drum_attacks.STANDARD
-var playing_lead_attack =  lead_attacks.STANDARD	
+var playing_lead_attack =  lead_attacks.STANDARD
 
 		
 var current_time:float = 0.0
@@ -116,3 +118,8 @@ func stop_background_music():
 
 func start_background_music():
 	$MusicController.play()
+
+signal sample_triggered(damage_info:DamageInfo)
+enum sample_attacks {STANDARD, SLOW, AOE, DOT, PIERCE, MULTI, FAST}
+func sample_attack(damage_info:DamageInfo):
+	sample_triggered.emit(damage_info)

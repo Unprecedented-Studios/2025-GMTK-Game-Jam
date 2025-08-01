@@ -180,21 +180,29 @@ alignment = 1
 
 [node name="SampleBox1" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
+effect = Array[int]([0, 2])
+damage_amount = 5.0
 sample_name = "Noise_Sweep"
 
 [node name="SampleBox2" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
 registered_key = "W"
+effect = Array[int]([1, 2])
+damage_amount = 5.0
 sample_name = "Growl"
 
 [node name="SampleBox3" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
 registered_key = "E"
+effect = Array[int]([1])
+damage_amount = 15.0
 sample_name = "Big_Explosion"
 
 [node name="SampleBox4" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
 registered_key = "R"
+effect = Array[int]([0, 2])
+damage_amount = 10.0
 sample_name = "Record_Scratch"
 
 [node name="Synced_Text" type="Label" parent="."]
