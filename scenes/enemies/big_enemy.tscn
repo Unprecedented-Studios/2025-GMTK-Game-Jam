@@ -24,9 +24,9 @@ shape = SubResource("CapsuleShape2D_i54nl")
 [node name="HealthProgress" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = -53.0
-offset_top = 64.0
+offset_top = 35.0
 offset_right = 56.0
-offset_bottom = 76.0
+offset_bottom = 47.0
 show_percentage = false
 
 [node name="BloodParticles" type="CPUParticles2D" parent="."]

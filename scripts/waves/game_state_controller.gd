@@ -3,6 +3,7 @@ extends Node
 # Wave Changes
 signal started 
 signal complete
+signal scoreChange(int)
 
 var waveCount = 0;
 var score = 0;
@@ -11,10 +12,13 @@ var _enemyList: Dictionary = {}
 @export var timeBetweenWaves: float = 5;
 
 @onready var currentWave = %CurrentWave
-
+func reset_game():
+	waveCount = 0
+	score = 0;
+	scoreChange.emit(score)
+	
 func start_wave():
 	waveCount += 1
-	score = 0;
 	currentWave.createWave(waveCount)
 	print("Wave %s Started" % [waveCount])
 	emit_signal("started");
@@ -34,8 +38,9 @@ func _check_last_enemy_died(enemy):
 	if _enemyList.is_empty():
 		endWave();
 
-func score_enemy(enemy):
-	score += enemy.points
+func score_enemy(points):
+	score += points
+	scoreChange.emit(score)
 
 func endWave():
 	if currentWave.complete && _enemyList.is_empty():
