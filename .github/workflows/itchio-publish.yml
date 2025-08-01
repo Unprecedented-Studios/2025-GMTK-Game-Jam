@@ -25,6 +25,44 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
 
+        
+      - name: Move Build
+        run: "mv ${{ steps.export.outputs.build_directory }}/gmtk-game-jam-2025 ./build"
+        
+      - name: Compress wasm
+        # You may pin to the exact commit or the version.
+        # uses: ThiagoJaweb/ghaction-CompressFiles@23278320ded41f5b5c203a4aef7e69789b044336
+        uses: StefH/ghaction-CompressFiles@v1
+        with:
+          # The path
+          path: ./build # default is .
+          # The file extensions to compress.
+          extensions: '.wasm' # optional, default is .js,.css,.html,.json
+          # The compression utility to use.
+          tools: 'brotli' # optional, default is brotli,gzip
+          # Maximum folder depth to process
+          depth: 3 # optional, default is 3
+
+      - name: Remove Old WASM
+        run: "rm ./build/index.wasm"
+
+      - name: list game files
+        if: always()
+        run: "ls -lR ./build"
+
+      - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/gmtk-game-jam-2025/index.html"
+      - run: "sed -i -e 's/.wasm`/.wasm.br`/g' ./build/gmtk-game-jam-2025/index.js"
+      
+      - name: Zip For Release
+        uses: TheDoctor0/zip-release@0.7.6
+        with:
+          filename: gmtk-game-jam-2025.zip
+          directory: ./build/gmtk-game-jam-2025
+      
+    
+      - name: list files
+        run: "ls -lR ."
+        
       - name: Publish to Itch
         uses: Ayowel/butler-to-itch@v1.2.0
         with:
@@ -32,4 +70,4 @@ jobs:
           itch_user: unprecedented
           itch_game: gmtk-2025-game-jam
           version: ${{ github.ref_name }}
-          files: "web ${{ steps.export.outputs.archive_directory }}/gmtk-game-jam-2025.zip"
+          files: "web ./build/gmtk-game-jam-2025/gmtk-game-jam-2025.zip"
