@@ -4,7 +4,7 @@
 # Godot-specific ignores
 .import/
 export.cfg
-
+bin/
 
 # Imported translations (automatically generated from CSV files)
 *.translation.godot/

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
-[ext_resource type="PackedScene" uid="uid://c2kbmys3ed2hv" path="res://BackGround.tscn" id="2_cuwy1"]
+[ext_resource type="PackedScene" path="res://BackGround.tscn" id="2_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://ch7riw71x6d87" path="res://scenes/objects/spawner.tscn" id="4_lwcio"]
 [ext_resource type="PackedScene" uid="uid://bagmkalg5f024" path="res://scenes/DJ_Deck.tscn" id="5_kw1mj"]
 [ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
@@ -19,16 +19,16 @@ script = ExtResource("1_cuwy1")
 position = Vector2(63, 176)
 
 [node name="Speaker" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(150, 275)
+position = Vector2(150, 274)
 
 [node name="Speaker2" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(150, 205)
+position = Vector2(150, 201)
 
 [node name="Speaker3" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(150, 125)
+position = Vector2(150, 122)
 
 [node name="Speaker4" parent="." instance=ExtResource("1_waojt")]
-position = Vector2(150, 45)
+position = Vector2(150, 43)
 
 [node name="Spawner" parent="." instance=ExtResource("4_lwcio")]
 position = Vector2(1350, 0)

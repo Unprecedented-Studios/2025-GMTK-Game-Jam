@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bagmkalg5f024"]
 
 [ext_resource type="Script" uid="uid://cl6delaqytfaw" path="res://scripts/objects/dj_deck.gd" id="1_gefnp"]
-[ext_resource type="Texture2D" uid="uid://tmthpfjpj7q4" path="res://assets/icons/track_playing_icon.png" id="2_535jm"]
+[ext_resource type="Texture2D" uid="uid://ckpuoi7s7vubj" path="res://assets/icons/track_playing_icon.png" id="2_535jm"]
 [ext_resource type="Texture2D" uid="uid://dcgywr4xtrvfs" path="res://assets/dj_deck_background.png" id="3_55qdq"]
 [ext_resource type="Texture2D" uid="uid://cfxe5aftuark" path="res://assets/icons/track_icon.png" id="3_535jm"]
 [ext_resource type="Texture2D" uid="uid://dl7p4y3ckukfi" path="res://assets/dj_deck/deck_ring_large.png" id="4_om14m"]
