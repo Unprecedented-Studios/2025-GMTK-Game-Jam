@@ -50,8 +50,8 @@ jobs:
         if: always()
         run: "ls -lR ./build"
 
-      - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/index.html"
-      - run: "sed -i -e 's/.wasm`/.wasm.br`/g' ./build/index.js"
+      - run: "sed -i -e 's/\.wasm/\.wasm.br/g' ./build/index.html"
+      - run: "sed -i -e 's/\.wasm`/\.wasm.br`/g' ./build/index.js"
       
       - name: Zip For Release
         uses: TheDoctor0/zip-release@0.7.6
