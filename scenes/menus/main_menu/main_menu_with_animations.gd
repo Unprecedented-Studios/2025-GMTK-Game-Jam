@@ -16,6 +16,7 @@ func new_game() -> void:
 	else:
 		GlobalState.reset()
 		load_game_scene()
+		Looper.play()
 
 func intro_done() -> void:
 	animation_state_machine.travel("OpenMainMenu")
@@ -77,3 +78,7 @@ func _on_level_select_button_pressed() -> void:
 func _on_new_game_confirmation_dialog_confirmed():
 	GlobalState.reset()
 	load_game_scene()
+
+
+func _on_background_music_player_finished() -> void:
+	$BackgroundMusicPlayer.play()

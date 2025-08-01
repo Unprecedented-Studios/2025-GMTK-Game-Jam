@@ -15,6 +15,6 @@ stream = ExtResource("2_3yhib")
 [node name="LeadDeck" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ppefx")
 
-[node name="Node" type="Node" parent="."]
+[node name="PauseMenu" type="Node" parent="."]
 script = ExtResource("4_ppefx")
 pause_menu_packed = ExtResource("5_y2qkx")

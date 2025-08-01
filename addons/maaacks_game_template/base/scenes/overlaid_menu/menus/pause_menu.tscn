@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5cd6sa8qq4vc"]
+[gd_scene load_steps=6 format=3 uid="uid://b5cd6sa8qq4vc"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_gm3uv"]
 [ext_resource type="Script" uid="uid://uidwhqh4fyhj" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/pause_menu.gd" id="2_0ln3r"]
 [ext_resource type="PackedScene" uid="uid://cikf3o5omnunl" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/mini_options_overlaid_menu.tscn" id="3_kv70e"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="4_jdmme"]
+[ext_resource type="AudioStream" uid="uid://2v3kb6p2qp2n" path="res://assets/menu_chant.mp3" id="5_keleg"]
 
 [node name="PauseMenu" instance=ExtResource("1_gm3uv")]
 process_mode = 3
@@ -59,6 +61,10 @@ unique_name_in_owner = true
 auto_translate_mode = 1
 dialog_text = "Quit the game?"
 
+[node name="BackgroundMusicPlayer" parent="." index="5" instance=ExtResource("4_jdmme")]
+stream = ExtResource("5_keleg")
+bus = &"BackgroundMusic"
+
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
@@ -66,3 +72,4 @@ dialog_text = "Quit the game?"
 [connection signal="confirmed" from="ConfirmRestart" to="." method="_on_confirm_restart_confirmed"]
 [connection signal="confirmed" from="ConfirmMainMenu" to="." method="_on_confirm_main_menu_confirmed"]
 [connection signal="confirmed" from="ConfirmExit" to="." method="_on_confirm_exit_confirmed"]
+[connection signal="finished" from="BackgroundMusicPlayer" to="." method="_on_background_music_player_finished"]

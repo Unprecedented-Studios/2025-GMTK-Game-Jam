@@ -10,6 +10,7 @@ func close_popup() -> void:
 	if popup_open != null:
 		popup_open.hide()
 		popup_open = null
+		Looper.stop_background_music()
 
 func _disable_focus() -> void:
 	for child in %MenuButtons.get_children():
@@ -79,3 +80,7 @@ func _on_confirm_main_menu_confirmed() -> void:
 
 func _on_confirm_exit_confirmed() -> void:
 	get_tree().quit()
+
+
+func _on_background_music_player_finished() -> void:
+	$BackgroundMusicPlayer.play()

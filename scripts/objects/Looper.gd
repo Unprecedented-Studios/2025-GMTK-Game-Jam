@@ -39,7 +39,8 @@ var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 
 func _ready():
-	play()
+	pass
+	#play()
 	#play(0)
 	#play(1)
 
@@ -109,3 +110,9 @@ func load_track(deck_id:int =0, track_id:int = 0):
 		decks[deck_id].stream = lead_tracks[track_id]
 		lead_attack_changed.emit(track_id)
 		playing_lead_attack = track_id as lead_attacks
+		
+func stop_background_music():
+	$MusicController.stop()
+
+func start_background_music():
+	$MusicController.play()
