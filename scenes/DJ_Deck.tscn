@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bagmkalg5f024"]
+[gd_scene load_steps=10 format=3 uid="uid://bagmkalg5f024"]
 
 [ext_resource type="Script" uid="uid://cl6delaqytfaw" path="res://scripts/objects/dj_deck.gd" id="1_gefnp"]
 [ext_resource type="Texture2D" uid="uid://tmthpfjpj7q4" path="res://assets/icons/track_playing_icon.png" id="2_535jm"]
+[ext_resource type="Texture2D" uid="uid://dcgywr4xtrvfs" path="res://assets/dj_deck_background.png" id="3_55qdq"]
 [ext_resource type="Texture2D" uid="uid://cfxe5aftuark" path="res://assets/icons/track_icon.png" id="3_535jm"]
 [ext_resource type="Texture2D" uid="uid://dl7p4y3ckukfi" path="res://assets/dj_deck/deck_ring_large.png" id="4_om14m"]
 [ext_resource type="PackedScene" uid="uid://bwlewe1pjqio4" path="res://scenes/objects/sample_button.tscn" id="5_8s83w"]
@@ -14,6 +15,12 @@ layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("8_af4r3")
 script = ExtResource("1_gefnp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 405.0
+texture = ExtResource("3_55qdq")
 
 [node name="Synced_Text" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -33,7 +40,8 @@ vertical_alignment = 1
 
 [node name="Vbox" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1260.0
+offset_left = 10.0
+offset_right = 1270.0
 offset_bottom = 394.0
 alignment = 1
 
@@ -108,7 +116,7 @@ fill_mode = 4
 texture_under = ExtResource("4_om14m")
 texture_over = ExtResource("5_h7jqa")
 texture_progress = ExtResource("4_om14m")
-tint_progress = Color(0, 1, 1, 1)
+tint_progress = Color(0, 0, 0, 1)
 
 [node name="SoundMeterLeft" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -129,7 +137,7 @@ fill_mode = 4
 texture_under = ExtResource("4_om14m")
 texture_over = ExtResource("5_h7jqa")
 texture_progress = ExtResource("4_om14m")
-tint_progress = Color(0, 1, 1, 1)
+tint_progress = Color(0, 0, 0, 1)
 
 [node name="LeadTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]
 layout_mode = 2
@@ -199,7 +207,7 @@ alignment = 1
 [node name="SampleBox1" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
 effect = Array[int]([0, 2])
-damage_amount = 5.0
+damage_amount = 8.0
 sample_name = "Noise_Sweep"
 
 [node name="SampleBox2" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
@@ -219,8 +227,8 @@ sample_name = "Big_Explosion"
 [node name="SampleBox4" parent="Vbox/Samples" instance=ExtResource("5_8s83w")]
 layout_mode = 2
 registered_key = "R"
-effect = Array[int]([0, 2])
-damage_amount = 10.0
+effect = Array[int]([0, 1])
+damage_amount = 7.0
 sample_name = "Record_Scratch"
 
 [connection signal="button_up" from="Vbox/HBoxContainer/DrumNBassTracks/Track1" to="." method="_on_track_button_up" binds= [0, 0]]

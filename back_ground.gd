@@ -1,0 +1,13 @@
+extends TextureRect
+class_name Background
+
+func _ready() -> void:
+	Looper.beat.connect(_on_beat)
+
+
+var colors:Array[Color] = \
+[Color.BLUE, Color.RED, Color.GREEN, Color.ORANGE, Color.YELLOW, Color.INDIGO, Color.VIOLET,
+Color.CADET_BLUE, Color.DARK_VIOLET, Color.FOREST_GREEN, Color.LIGHT_PINK]
+
+func _on_beat(beat:int, measure_beat:int, loop_beat:int) -> void:
+	self_modulate = colors[randi_range(0,colors.size()-1)]

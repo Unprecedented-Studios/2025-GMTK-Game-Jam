@@ -88,7 +88,6 @@ func set_text(new_text:String = "Sample"):
 	+ explainer_text
 
 func play_sound():
-	Looper.sample_attack(damage_info)
 	_on_sample_button_down()
 
 
@@ -96,6 +95,7 @@ func _on_sample_button_down() -> void:
 	$AudioStreamPlayer.play()
 	$TextureProgressBar.value = 100.0
 	$SampleButton.disabled = true
+	Looper.sample_attack(damage_info)
 	
 func _input(event: InputEvent) -> void:
 	if not $SampleButton.disabled:
