@@ -31,10 +31,10 @@ position = Vector2(119, 55)
 position = Vector2(1350, 0)
 
 [node name="DjDeck" parent="." instance=ExtResource("5_kw1mj")]
-offset_left = 71.0
-offset_top = 383.0
-offset_right = 71.0
-offset_bottom = 383.0
+offset_left = 10.0
+offset_top = 320.0
+offset_right = 10.0
+offset_bottom = 320.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0

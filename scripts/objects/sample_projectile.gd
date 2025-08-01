@@ -14,8 +14,6 @@ func set_damage_info(di:DamageInfo):
 	if _damage_info.effect_types.find_key(DamageInfo.effect_types.PIERCE):
 		_pierce = true
 	damage = _damage_info.damage
-	
-
 
 func _physics_process(delta):
 	global_position += Vector2(speed * delta, 0);
