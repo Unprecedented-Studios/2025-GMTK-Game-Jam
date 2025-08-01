@@ -9,10 +9,12 @@ extends CharacterBody2D
 signal dying(CharacterBody2D)
 
 var _dotDamage:float = 0;
+var _score:int = 0
 
 func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
+	_score = health / 10
 	Looper.beat.connect(_on_beat)
 
 func _physics_process(_delta):
@@ -38,15 +40,16 @@ func take_damage(info: DamageInfo):
 		health -= info.damage;
 		health_bar.value = health;
 		if (health <= 0):
+			GameStateController.score_enemy(score)
 			_die()
 
 	if (info.effects.has(DamageInfo.effect_types.SLOW)):
 		current_speed = speed / 2
 		modulate = Color.CORNFLOWER_BLUE
 
-var score: bool:
+var score: int:
 	get: 
-		return health / 10;
+		return _score;
 		
 func _on_beat(_beat_counter,_note, _count):
 	if _dotDamage > 0:

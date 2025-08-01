@@ -33,7 +33,7 @@ tooltip_text = "Player Health"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 value = 100.0
 
-[node name="Label" type="Label" parent="."]
+[node name="WaveTitleLabel" type="Label" parent="."]
 offset_left = -57.0
 offset_top = -141.0
 offset_right = -10.0
@@ -41,7 +41,7 @@ offset_bottom = -118.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Wave:"
 
-[node name="WaveNumberLabel" type="Label" parent="Label"]
+[node name="WaveNumberLabel" type="Label" parent="WaveTitleLabel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 51.0
@@ -49,3 +49,20 @@ offset_right = 91.0
 offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "1"
+
+[node name="ScoreTitleLabel" type="Label" parent="."]
+offset_left = -57.0
+offset_top = -122.0
+offset_right = -10.0
+offset_bottom = -99.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score:"
+
+[node name="ScoreNumberLabel" type="Label" parent="ScoreTitleLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 51.0
+offset_right = 91.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
