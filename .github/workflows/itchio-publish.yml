@@ -50,18 +50,18 @@ jobs:
         if: always()
         run: "ls -lR ./build"
 
-      - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/gmtk-game-jam-2025/index.html"
-      - run: "sed -i -e 's/.wasm`/.wasm.br`/g' ./build/gmtk-game-jam-2025/index.js"
+      - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/index.html"
+      - run: "sed -i -e 's/.wasm`/.wasm.br`/g' ./build/index.js"
       
       - name: Zip For Release
         uses: TheDoctor0/zip-release@0.7.6
         with:
           filename: gmtk-game-jam-2025.zip
-          directory: ./build/gmtk-game-jam-2025
+          directory: ./build
       
     
       - name: list files
-        run: "ls -lR ."
+        run: "ls -lR ./build"
         
       - name: Publish to Itch
         uses: Ayowel/butler-to-itch@v1.2.0
@@ -70,4 +70,4 @@ jobs:
           itch_user: unprecedented
           itch_game: gmtk-2025-game-jam
           version: ${{ github.ref_name }}
-          files: "web ./build/gmtk-game-jam-2025/gmtk-game-jam-2025.zip"
+          files: "web ./build/gmtk-game-jam-2025.zip"
