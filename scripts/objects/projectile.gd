@@ -5,7 +5,10 @@ extends Sprite2D
 var _damage_info: DamageInfo = DamageInfo.new()
 var _explode: bool = false;
 var _pierce: bool = false;
-var _hitEnemy: Dictionary = {}
+
+@onready var explosion = %Explosion
+
+const EXPLOSION_SCENE = preload("res://scenes/projectiles/explosion.tscn")
 
 func _ready():
 	
@@ -44,13 +47,16 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemy"):
 		if body.has_method("take_damage"):
 			if (!_pierce):
-				body.take_damage(_damage_info);
+				if _explode:
+					var exp = EXPLOSION_SCENE.instantiate();
+					exp.position = position;
+					exp.damageInfo = _damage_info;
+					get_parent().add_child(exp);
+				else:
+					body.take_damage(_damage_info);
 				queue_free();
 			else:
-				if _hitEnemy.has(body):
-					return;
 				body.take_damage(_damage_info);
-				_hitEnemy.set(body, true)
 				_damage_info.damage -= 1;
 				scale *= max(1, _damage_info.damage*.25)
 				if (_damage_info.damage <= 0):
