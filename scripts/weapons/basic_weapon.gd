@@ -6,6 +6,7 @@ var _multiShot = 0;
 @export var multi_yOffset = 23;
 
 @onready var projectile = preload("res://scenes/projectiles/basic.tscn")
+var _measure_length = 0.5;
 
 func _ready():
 	WaveState.started.connect(_on_wave_start);
@@ -16,15 +17,18 @@ func _fire_projectile(offset: Vector2 = Vector2(0,0) ):
 	new_projectile.position.y += offset.y
 
 func _on_beat(_beat_counter,_note, _count):
-	if (Looper.playing_drum_attack == Looper.drum_attacks.AOE && _note % 2 == 0):
-		return
-		
+	_measure_length = 0.5;
+	if Looper.playing_drum_attack == Looper.drum_attacks.AOE:
+		_measure_length = 1.0;
+		if _note % 2 == 0:
+			return
+
 	_fire_projectile()
 
 	match Looper.playing_lead_attack:
 		Looper.lead_attacks.FAST:
 			_multiShot = 0
-			get_tree().create_timer(0.5/4.0).timeout.connect(_multiShot_beat)
+			get_tree().create_timer(_measure_length/4.0).timeout.connect(_multiShot_beat)
 		Looper.lead_attacks.MULTI:
 			_fire_projectile(Vector2(0,multi_yOffset))
 			_fire_projectile(Vector2(0,-multi_yOffset))
@@ -42,4 +46,4 @@ func _multiShot_beat():
 	_multiShot += 1
 	_fire_projectile(Vector2(0, -10 * _multiShot))
 	if (_multiShot < 3):
-		get_tree().create_timer(0.5/4.0).timeout.connect(_multiShot_beat)
+		get_tree().create_timer(_measure_length/4.0).timeout.connect(_multiShot_beat)

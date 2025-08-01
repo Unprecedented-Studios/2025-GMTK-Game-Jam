@@ -12,8 +12,6 @@ func spawn_enemy(enemy):
 	var enemy_spawn = enemy.instantiate();
 	add_child(enemy_spawn)
 
-
-
-func _on_spawn_area_body_exited(body):
+func _on_spawn_area_body_exited(_body):
 	if (_spawn_wait_list.size() > 0):
 		spawn_enemy(_spawn_wait_list.pop_front())

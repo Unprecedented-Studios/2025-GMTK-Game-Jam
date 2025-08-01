@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 				elif track_button_states[deck][i] == states.QUEUED:
 					track_buttons[deck][i].icon = track_playing_icon
 					track_button_states[deck][i] = states.PLAYING
-	var new_color:Color = $Vbox/HBoxContainer/SoundMeterRight.tint_over
+	#var new_color:Color = $Vbox/HBoxContainer/SoundMeterRight.tint_over
 	$Synced_Text.modulate.a -=delta* .5
 
 	if looper.flashy:

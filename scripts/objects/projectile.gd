@@ -1,12 +1,10 @@
 extends Sprite2D
 @export var speed: float = 400;
-@export var damage: int = 5;
+@export var damage: float = 5;
 @export var sync_bonus = 1.2
 var _damage_info: DamageInfo = DamageInfo.new()
 var _explode: bool = false;
 var _pierce: bool = false;
-
-@onready var explosion = %Explosion
 
 const EXPLOSION_SCENE = preload("res://scenes/projectiles/explosion.tscn")
 
@@ -27,6 +25,7 @@ func _ready():
 			_damage_info.effects.push_back(DamageInfo.effect_types.SLOW);
 			modulate.r = 0
 		Looper.drum_attacks.DOT:
+			damage /= 3
 			_damage_info.type = DamageInfo.damage_types.POISON
 			_damage_info.effects.push_back(DamageInfo.effect_types.DOT);
 			modulate.g = 0
@@ -49,21 +48,23 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemy"):
 		if body.has_method("take_damage"):
+			_do_damage(body)
 			if (!_pierce):
-				if _explode:
-					var exp = EXPLOSION_SCENE.instantiate();
-					exp.position = position;
-					exp.damageInfo = _damage_info;
-					get_parent().add_child(exp);
-				else:
-					body.take_damage(_damage_info);
 				queue_free();
 			else:
-				body.take_damage(_damage_info);
 				_damage_info.damage -= 1;
 				scale *= max(1, _damage_info.damage*.25)
 				if (_damage_info.damage <= 0):
 					queue_free()
+
+func _do_damage(body):
+	if _explode:
+		var explosion = EXPLOSION_SCENE.instantiate();
+		explosion.position = position;
+		explosion.damageInfo = _damage_info;
+		get_parent().call_deferred("add_child",explosion);
+	else:
+		body.take_damage(_damage_info);
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

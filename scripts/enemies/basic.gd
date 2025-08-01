@@ -7,9 +7,12 @@ extends CharacterBody2D
 
 @onready var current_speed = speed;
 
+var _dotDamage:float = 0;
+
 func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
+	Looper.beat.connect(_on_beat)
 
 func _physics_process(_delta):
 	velocity = Vector2(-current_speed, 0);
@@ -26,10 +29,21 @@ func _physics_process(_delta):
 			queue_free()
 
 func take_damage(info: DamageInfo):
-	health -= info.damage;
-	health_bar.value = health;
-	if (health <= 0):
-		queue_free();
-	
+	if (info.effects.has(DamageInfo.effect_types.DOT)):
+		_dotDamage += info.damage;
+	else:
+		health -= info.damage;	
+		health_bar.value = health;
+		if (health <= 0):
+			queue_free();
+		
 	if (info.effects.has(DamageInfo.effect_types.SLOW)):
 		current_speed = speed / 2
+
+		
+func _on_beat(_beat_counter,_note, _count):
+	if _dotDamage > 0:
+		var damageInfo = DamageInfo.new()
+		damageInfo.type = DamageInfo.damage_types.POISON
+		damageInfo.damage = _dotDamage
+		take_damage(damageInfo);
