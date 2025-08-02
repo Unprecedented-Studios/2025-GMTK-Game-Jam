@@ -31,3 +31,5 @@ func _process(delta: float) -> void:
 		$Player.position.y = -171.0 + bounce
 		$LeftArm.position.y = -34.0 + bounce
 		$RightArm.position.y = 6.0 + bounce
+		$LeftRecordPivot.rotation += delta * 4.0
+		$RightRecordPivot.rotation += delta * 4.0
