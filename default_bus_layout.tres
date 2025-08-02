@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://dlo5inop6ahho"]
+[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://dlo5inop6ahho"]
 
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
 resource_name = "Chorus"
@@ -23,6 +23,19 @@ resource_name = "Compressor"
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_g28q7"]
 resource_name = "Compressor"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_n8wo2"]
+resource_name = "Reverb"
+room_size = 0.55
+damping = 0.61
+spread = 0.75
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cenje"]
+resource_name = "Reverb"
+room_size = 0.6
+damping = 0.74
+spread = 0.65
+dry = 0.75
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
@@ -63,6 +76,8 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Music"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_n8wo2")
+bus/4/effect/0/enabled = true
 bus/5/name = &"Pads"
 bus/5/solo = false
 bus/5/mute = false
@@ -81,3 +96,5 @@ bus/7/mute = false
 bus/7/bypass_fx = false
 bus/7/volume_db = 0.0
 bus/7/send = &"Music"
+bus/7/effect/0/effect = SubResource("AudioEffectReverb_cenje")
+bus/7/effect/0/enabled = true
