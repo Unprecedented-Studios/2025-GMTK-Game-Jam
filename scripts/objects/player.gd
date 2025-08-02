@@ -5,6 +5,8 @@ extends StaticBody2D
 @onready var wave_number_label = %WaveNumberLabel
 @onready var score_number_label = %ScoreNumberLabel
 
+signal died
+
 func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
@@ -14,7 +16,8 @@ func _ready():
 func take_damage(info: DamageInfo):
 	health -= info.damage;
 	health_bar.value = health;
-	#if (health <= 0):
+	if (health <= 0):
+		died.emit();
 		#queue_free();
 
 func _wave_started():

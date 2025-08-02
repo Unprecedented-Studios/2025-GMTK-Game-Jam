@@ -15,6 +15,7 @@ var _enemyList: Dictionary = {}
 func reset_game():
 	waveCount = 0
 	score = 0;
+	_enemyList = {}
 	scoreChange.emit(score)
 	
 func start_wave():

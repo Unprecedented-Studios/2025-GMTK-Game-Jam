@@ -42,8 +42,7 @@ var current_beat:float = 0.0
 var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 var countdown_fast: bool = false
-func _ready():
-	reset_music();
+
 	#start_playing()
 	#play()
 	#play(0)
@@ -68,7 +67,7 @@ func _countdown_process():
 	var current_beat_int:int = floor(current_beat)
 	var last_beat_int:int =floor(last_time*2.0)
 	if current_beat_int != last_beat_int:
-		var call_number = '-';
+		var _call_number = '-';
 		if countdown_fast:
 			if (current_beat_int%16 == 8):
 				countdown_fast = false;
@@ -79,15 +78,15 @@ func _countdown_process():
 				return
 			var count = (current_beat_int%4)+1
 			count_off.emit(count)
-			call_number = "%s" % [count];
+			_call_number = "%s" % [count];
 		elif current_beat_int%2 == 0:
 			@warning_ignore("integer_division")
 			var count:int = (current_beat_int%8) / 2 + 1
 			count_off.emit(count)
-			call_number = "%s" % [count];
+			_call_number = "%s" % [count];
 		elif current_beat_int%4 == 3:
 			countdown_fast = true;
-		print("call: %s		current_beat: %s-%s-%s" % [call_number, current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1])
+		#print("call: %s		current_beat: %s-%s-%s" % [_call_number, current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1])
 
 
 func play_with_check():

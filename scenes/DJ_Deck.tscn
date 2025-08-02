@@ -101,6 +101,7 @@ fill_mode = 4
 texture_under = ExtResource("4_om14m")
 texture_over = ExtResource("5_h7jqa")
 texture_progress = ExtResource("4_om14m")
+tint_over = Color(1, 1, 1, 0)
 tint_progress = Color(0, 0, 0, 1)
 
 [node name="SoundMeterLeft" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
@@ -120,6 +121,7 @@ fill_mode = 4
 texture_under = ExtResource("4_om14m")
 texture_over = ExtResource("5_h7jqa")
 texture_progress = ExtResource("4_om14m")
+tint_over = Color(1, 1, 1, 0)
 tint_progress = Color(0, 0, 0, 1)
 
 [node name="LeadTracks" type="VBoxContainer" parent="Vbox/HBoxContainer"]

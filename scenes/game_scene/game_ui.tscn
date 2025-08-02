@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4st6nf3enq46"]
+[gd_scene load_steps=6 format=3 uid="uid://4st6nf3enq46"]
 
-[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_8qp3c"]
+[ext_resource type="Script" uid="uid://dtymlftw8kra1" path="res://scripts/overlay_menu_controller.gd" id="1_dnslt"]
 [ext_resource type="PackedScene" uid="uid://b51ffq7jnmic5" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_bmy5n"]
+[ext_resource type="PackedScene" uid="uid://cvr36eb0r2bje" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="3_v20na"]
 [ext_resource type="PackedScene" uid="uid://dc0s07hbh6xs5" path="res://scenes/game_scene/levels/level_test.tscn" id="6_y85d6"]
 [ext_resource type="Script" uid="uid://cl3opf2oe8og3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_0v86b"]
 
@@ -13,9 +14,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenuController" type="Node" parent="." node_paths=PackedStringArray("focused_viewport")]
-script = ExtResource("1_8qp3c")
+[node name="OverlayMenuController" type="Node" parent="." node_paths=PackedStringArray("focused_viewport")]
+script = ExtResource("1_dnslt")
 pause_menu_packed = ExtResource("2_bmy5n")
+lost_menu_packed = ExtResource("3_v20na")
+main_menu_scene = "uid://c78vtc8cg3qo8"
 focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]
@@ -36,3 +39,5 @@ render_target_update_mode = 4
 script = ExtResource("11_0v86b")
 
 [node name="LevelTest" parent="ViewportContainer/ConfigurableSubViewport" instance=ExtResource("6_y85d6")]
+
+[connection signal="level_lost" from="ViewportContainer/ConfigurableSubViewport/LevelTest" to="OverlayMenuController" method="_on_level_test_level_lost"]
