@@ -21,6 +21,9 @@ func open_tutorials(wave:int = 0) -> void:
 				return
 			get_tree().current_scene.call_deferred("add_child", tutorial_menu)
 			await tutorial_menu.tree_exited
+			
+			level_state.tutorial_read.set(tutorial_scene, true)
+			GlobalState.save()
 			if is_inside_tree() and _initial_focus_control:
 				_initial_focus_control.grab_focus()
 	if (wave == 0):
