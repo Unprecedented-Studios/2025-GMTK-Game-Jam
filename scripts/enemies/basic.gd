@@ -1,7 +1,12 @@
+class_name BasicEnemy
 extends CharacterBody2D
 @export var speed: float = 200;
 @export var health: float = 30;
 @export var damage: int = 10;
+@export var strongAgainst: Array[DamageInfo.damage_types] = [];
+@export var weakAgainst: Array[DamageInfo.damage_types] = [];
+@export var immunity: Array[DamageInfo.effect_types] = [];
+
 
 @onready var health_bar = %HealthProgress
 @onready var current_speed = speed;
@@ -36,24 +41,34 @@ func _physics_process(_delta):
 
 func take_damage(info: DamageInfo):
 	$HitParticles.emitting = true
-	if (info.effects.has(DamageInfo.effect_types.DOT)):
+	if (info.effects.has(DamageInfo.effect_types.DOT) && !immunity.has(DamageInfo.effect_types.DOT)):
 	
 		health_bar.modulate.r = 1/3.0;
 		health_bar.modulate.g = 0;
 		health_bar.modulate.b = 1;
-		_dotDamage += info.damage;
+		_dotDamage += _modify_damage(info);
 		$BloodParticles.emitting = true
 	else:
-		health -= info.damage;
+		health -= _modify_damage(info);
 		health_bar.value = health;
 		if (health <= 0):
 			GameStateController.score_enemy(score)
 			_die()
-
-	if (info.effects.has(DamageInfo.effect_types.SLOW)):
+	_handle_effects(info)
+	
+func _handle_effects(info:DamageInfo):
+	if (info.effects.has(DamageInfo.effect_types.SLOW) && !immunity.has(DamageInfo.effect_types.SLOW)):
 		current_speed = speed / 2
 		modulate = Color.CORNFLOWER_BLUE
 
+func _modify_damage(info: DamageInfo) -> float:
+	if strongAgainst.has(info.type):
+		return info.damage / 2
+	elif weakAgainst.has(info.type):
+		return info.damage * 2
+
+	return info.damage
+	
 var score: int:
 	get: 
 		return _score;

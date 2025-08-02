@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://sb3j1h55sanc"]
+
+[ext_resource type="Script" uid="uid://6r4ww2oabfoq" path="res://scripts/enemies/basic.gd" id="1_f3rg5"]
+[ext_resource type="Texture2D" uid="uid://e24p2ai5h5gt" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile245.png" id="2_ntgbi"]
+[ext_resource type="PackedScene" uid="uid://b1crq3puylkjk" path="res://scenes/enemies/basic_animated_enemy.tscn" id="3_8qos6"]
+[ext_resource type="Texture2D" uid="uid://c3b0glbfep2cu" path="res://assets/enemies/bodies/red/characterRed (1).png" id="4_ik3io"]
+[ext_resource type="Texture2D" uid="uid://cv4j5k583qovx" path="res://assets/enemies/bodies/red/characterRed (2).png" id="5_albdv"]
+[ext_resource type="Texture2D" uid="uid://cua8nhsirh6va" path="res://assets/enemies/bodies/red/characterRed (3).png" id="6_u8ylc"]
+[ext_resource type="Texture2D" uid="uid://cco45rkl1jtyw" path="res://assets/enemies/bodies/red/characterRed (4).png" id="7_ucvmb"]
+[ext_resource type="Texture2D" uid="uid://c481xqac2xjfj" path="res://assets/enemies/bodies/red/characterRed (5).png" id="8_oifwv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibjif"]
+radius = 20.0
+height = 58.0
+
+[node name="Fire_Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_mask = 3
+script = ExtResource("1_f3rg5")
+speed = 250.0
+health = 40.0
+damage = 15
+strongAgainst = Array[int]([5])
+weakAgainst = Array[int]([7])
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ntgbi")
+flip_h = true
+
+[node name="BasicAnimatedEnemy" parent="." instance=ExtResource("3_8qos6")]
+scale = Vector2(1.75, 1.75)
+bodyList = Array[Texture2D]([ExtResource("4_ik3io"), ExtResource("5_albdv"), ExtResource("6_u8ylc"), ExtResource("7_ucvmb"), ExtResource("8_oifwv")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ibjif")
+
+[node name="HealthProgress" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+offset_left = -25.0
+offset_top = 18.0
+offset_right = 24.0
+offset_bottom = 30.0
+value = 50.0
+show_percentage = false
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+visible = false
+emitting = false
+amount = 16
+emission_shape = 3
+emission_rect_extents = Vector2(12, 16)
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+scale_amount_max = 3.0
+color = Color(1, 0, 0, 1)
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 7.86
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0

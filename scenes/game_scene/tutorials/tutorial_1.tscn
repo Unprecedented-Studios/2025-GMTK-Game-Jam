@@ -20,6 +20,11 @@ text = "Tutorial"
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Click the Win button to progress.
-Click the Lose button to try again.[/center]"
+text = "Welcome to the gig DJ!
+Keep the fans from rushing the stage with your phat beatz!"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+text = "Kick it!"
