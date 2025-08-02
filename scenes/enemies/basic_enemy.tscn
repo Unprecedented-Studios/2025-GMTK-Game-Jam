@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvp4xtd6mubsq"]
+[gd_scene load_steps=5 format=3 uid="uid://dvp4xtd6mubsq"]
 
 [ext_resource type="Script" uid="uid://6r4ww2oabfoq" path="res://scripts/enemies/basic.gd" id="1_8xi43"]
 [ext_resource type="Texture2D" uid="uid://e24p2ai5h5gt" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile245.png" id="2_8xi43"]
+[ext_resource type="PackedScene" uid="uid://b1crq3puylkjk" path="res://scenes/enemies/basic_animated_enemy.tscn" id="2_ibjif"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibjif"]
 radius = 20.0
@@ -12,8 +13,12 @@ collision_mask = 3
 script = ExtResource("1_8xi43")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_8xi43")
 flip_h = true
+
+[node name="BasicAnimatedEnemy" parent="." instance=ExtResource("2_ibjif")]
+scale = Vector2(1.75, 1.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ibjif")

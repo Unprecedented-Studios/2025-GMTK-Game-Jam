@@ -137,10 +137,10 @@ func reset_music():
 	countdown_fast = false;
 	playing = false
 	countdown = false 
-	current_time = -1.0
+	current_time = -1.0 # -1 because we add one before determining which beat 
 	last_time = 0.0
-	deck_beats[0] = -1
-	deck_beats[1] = -1
+	deck_beats[0] = -1 # -1 because we add one before determining which beat 
+	deck_beats[1] = -1 # -1 because we add one before determining which beat 
 	decks[0].stop()
 	decks[1].stop()
 	

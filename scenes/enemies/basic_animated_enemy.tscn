@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1crq3puylkjk"]
+
+[ext_resource type="Texture2D" uid="uid://cu4ts2gyy7vdb" path="res://assets/enemies/bodies/basic/characterWhite (11).png" id="1_eq18n"]
+[ext_resource type="Script" uid="uid://8v6gfhvm81vb" path="res://scripts/enemies/animated_enemy_mixer.gd" id="1_pfrif"]
+[ext_resource type="Texture2D" uid="uid://d0gkcsigt8b0k" path="res://assets/enemies/bodies/basic/characterWhite (1).png" id="2_pfrif"]
+[ext_resource type="Texture2D" uid="uid://dwa4bq3ly7jvw" path="res://assets/enemies/bodies/basic/characterWhite (2).png" id="3_4fej1"]
+[ext_resource type="Texture2D" uid="uid://bjpf0iev3fp62" path="res://assets/enemies/bodies/basic/characterWhite (3).png" id="4_yxaib"]
+[ext_resource type="Texture2D" uid="uid://c6j2d3agbyjr2" path="res://assets/enemies/bodies/basic/characterWhite (4).png" id="5_jl3kx"]
+[ext_resource type="Texture2D" uid="uid://coypdmwf61fbv" path="res://assets/enemies/bodies/basic/characterWhite (5).png" id="6_haeyk"]
+[ext_resource type="Texture2D" uid="uid://dt2lo4cim75kx" path="res://assets/enemies/bodies/basic/characterWhite (12).png" id="8_rvkar"]
+
+[sub_resource type="Animation" id="Animation_l2aw5"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyLeftLeg:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-3, -3, -3),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyRightLeg:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-3, -3, -3),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fvejq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyLeftLeg:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyLeftLeg:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyRightLeg:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5nlw"]
+_data = {
+&"RESET": SubResource("Animation_fvejq"),
+&"walk": SubResource("Animation_l2aw5")
+}
+
+[node name="BasicAnimatedEnemy" type="Node2D"]
+script = ExtResource("1_pfrif")
+bodyList = Array[Texture2D]([ExtResource("2_pfrif"), ExtResource("3_4fej1"), ExtResource("4_yxaib"), ExtResource("5_jl3kx"), ExtResource("6_haeyk")])
+legList = Array[Texture2D]([ExtResource("1_eq18n"), ExtResource("1_eq18n"), ExtResource("1_eq18n"), ExtResource("8_rvkar"), ExtResource("1_eq18n")])
+
+[node name="EnemyLeftLeg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1, 1e-05)
+texture = ExtResource("1_eq18n")
+centered = false
+
+[node name="EnemyRightLeg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -13)
+texture = ExtResource("1_eq18n")
+centered = false
+
+[node name="EnemyBody" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_pfrif")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g5nlw")
+}
+autoplay = "walk"
