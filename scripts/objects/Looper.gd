@@ -81,7 +81,8 @@ func _countdown_process():
 			count_off.emit(count)
 			call_number = "%s" % [count];
 		elif current_beat_int%2 == 0:
-			var count:int = (current_beat_int%8)/2+1
+			@warning_ignore("integer_division")
+			var count:int = (current_beat_int%8) / 2 + 1
 			count_off.emit(count)
 			call_number = "%s" % [count];
 		elif current_beat_int%4 == 3:
