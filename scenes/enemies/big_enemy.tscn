@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0ats68u4sdfn"]
 
 [ext_resource type="Script" uid="uid://6r4ww2oabfoq" path="res://scripts/enemies/basic.gd" id="1_2c0e7"]
-[ext_resource type="PackedScene" uid="uid://ulha37wlmljg" path="res://scenes/enemies/basic_burly_animated_enemy.tscn" id="2_2c0e7"]
+[ext_resource type="PackedScene" uid="uid://c2dhbts8jvb0a" path="res://scenes/enemies/basic_burly_animated_enemy.tscn" id="2_2c0e7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i54nl"]
 radius = 30.0
@@ -28,6 +28,7 @@ offset_bottom = 47.0
 show_percentage = false
 
 [node name="BloodParticles" type="CPUParticles2D" parent="."]
+visible = false
 emitting = false
 amount = 16
 emission_shape = 3
@@ -47,7 +48,6 @@ one_shot = true
 explosiveness = 1.0
 emission_shape = 1
 emission_sphere_radius = 7.86
-spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 80.0
 initial_velocity_max = 100.0

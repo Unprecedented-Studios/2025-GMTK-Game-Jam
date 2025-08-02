@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://dlo5inop6ahho"]
+[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://dlo5inop6ahho"]
 
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
 resource_name = "Chorus"
@@ -36,6 +36,10 @@ room_size = 0.42
 damping = 1.0
 spread = 0.0
 wet = 0.16
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_j3pel"]
+resource_name = "Amplify"
+volume_db = 4.0
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
@@ -98,3 +102,11 @@ bus/7/volume_db = 0.0
 bus/7/send = &"Music"
 bus/7/effect/0/effect = SubResource("AudioEffectReverb_cenje")
 bus/7/effect/0/enabled = true
+bus/8/name = &"Count_off"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 6.02
+bus/8/send = &"Master"
+bus/8/effect/0/effect = SubResource("AudioEffectAmplify_j3pel")
+bus/8/effect/0/enabled = true

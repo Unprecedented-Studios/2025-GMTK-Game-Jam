@@ -34,6 +34,7 @@ value = 50.0
 show_percentage = false
 
 [node name="BloodParticles" type="CPUParticles2D" parent="."]
+visible = false
 emitting = false
 amount = 16
 emission_shape = 3
@@ -52,7 +53,6 @@ one_shot = true
 explosiveness = 1.0
 emission_shape = 1
 emission_sphere_radius = 7.86
-spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 80.0
 initial_velocity_max = 120.0

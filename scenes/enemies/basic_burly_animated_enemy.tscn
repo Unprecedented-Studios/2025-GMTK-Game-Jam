@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://ulha37wlmljg"]
+[gd_scene load_steps=10 format=3 uid="uid://c2dhbts8jvb0a"]
 
-[ext_resource type="Script" uid="uid://8v6gfhvm81vb" path="res://scripts/enemies/animated_enemy_mixer.gd" id="1_quxox"]
+[ext_resource type="Script" path="res://scripts/enemies/animated_enemy_mixer.gd" id="1_quxox"]
 [ext_resource type="Texture2D" uid="uid://cf8nuuql4qfyo" path="res://assets/enemies/bodies/basic/characterWhite (6).png" id="2_xthut"]
 [ext_resource type="Texture2D" uid="uid://cormoy5xwtrr" path="res://assets/enemies/bodies/basic/characterWhite (7).png" id="3_leqme"]
 [ext_resource type="Texture2D" uid="uid://jwa0gri4xjxt" path="res://assets/enemies/bodies/basic/characterWhite (8).png" id="4_jugyp"]
