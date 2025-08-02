@@ -1,10 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccg4hitjbm01k"]
+[gd_scene load_steps=9 format=3 uid="uid://ccg4hitjbm01k"]
 
 [ext_resource type="Script" uid="uid://cs5xt622fde26" path="res://scripts/objects/player.gd" id="1_a8lix"]
-[ext_resource type="Texture2D" uid="uid://dkvrb31etcsi5" path="res://assets/temp_assets/DJBooth.png" id="2_2147m"]
+[ext_resource type="Texture2D" uid="uid://c3daqqdyegbf6" path="res://assets/player/DJBooth.png" id="2_54rde"]
+[ext_resource type="Texture2D" uid="uid://cu4ts2gyy7vdb" path="res://assets/enemies/bodies/basic/characterWhite (11).png" id="3_q8hb4"]
+[ext_resource type="Texture2D" uid="uid://5p8dvdy117lf" path="res://assets/player/Player.png" id="4_ksjmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_waojt"]
 size = Vector2(115.5, 815.5)
+
+[sub_resource type="Animation" id="Animation_54rde"]
+resource_name = "DJ Bounce"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.466667, 0.5, 0.7, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-62, -169), Vector2(-62, -171), Vector2(-62, -173), Vector2(-62, -171), Vector2(-62, -169), Vector2(-62, -171), Vector2(-62, -173), Vector2(-62, -171)]
+}
+
+[sub_resource type="Animation" id="Animation_q8hb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-62, -171)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksjmp"]
+_data = {
+&"DJ Bounce": SubResource("Animation_54rde"),
+&"RESET": SubResource("Animation_q8hb4")
+}
 
 [node name="PlayerArea" type="StaticBody2D" groups=["player"]]
 collision_layer = 2
@@ -15,12 +54,38 @@ script = ExtResource("1_a8lix")
 position = Vector2(6.25, 161.75)
 shape = SubResource("RectangleShape2D_waojt")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Booth" type="TextureRect" parent="."]
 offset_left = -63.0
 offset_top = -171.0
 offset_right = 65.0
 offset_bottom = 139.0
-texture = ExtResource("2_2147m")
+texture = ExtResource("2_54rde")
+
+[node name="LeftArm" type="TextureRect" parent="."]
+offset_left = -13.0
+offset_top = -34.0
+offset_right = 22.0
+offset_bottom = -2.0
+rotation = -0.42172
+scale = Vector2(1.14931, 0.927532)
+texture = ExtResource("3_q8hb4")
+
+[node name="RightArm" type="TextureRect" parent="."]
+offset_left = -7.0
+offset_top = 6.0
+offset_right = 28.0
+offset_bottom = 38.0
+rotation = 0.0698132
+scale = Vector2(1.14931, 0.927532)
+texture = ExtResource("3_q8hb4")
+expand_mode = 1
+
+[node name="Player" type="TextureRect" parent="."]
+offset_left = -62.0
+offset_top = -171.0
+offset_right = 66.0
+offset_bottom = 139.0
+texture = ExtResource("4_ksjmp")
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -66,3 +131,8 @@ offset_right = 91.0
 offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ksjmp")
+}

@@ -22,3 +22,12 @@ func _wave_started():
 
 func _score_changed(score):
 	score_number_label.text = "%s" % score
+
+func _process(delta: float) -> void:
+	if Looper.playing:
+		var bounce:float = pow(cos((Looper.current_beat*3)),4) *3
+		$LeftArm.scale.x = 1.149 + cos(Looper.current_beat*8)*.1
+		$RightArm.scale.x = 1.149 + sin(Looper.current_beat*8)*.1
+		$Player.position.y = -171.0 + bounce
+		$LeftArm.position.y = -34.0 + bounce
+		$RightArm.position.y = 6.0 + bounce
