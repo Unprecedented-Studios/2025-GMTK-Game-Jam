@@ -27,7 +27,7 @@ var track_stopping_icon =  preload("res://assets/icons/track_stopping_icon.png")
 func _ready():
 	Looper.beat.connect(beat_flash)
 	Looper.beats_synced.connect(display_synced)
-	Looper.count_off.connect(_display_count_off);
+	#Looper.count_off.connect(_display_count_off);
 	
 func display_synced(synced:bool):
 	if synced and $Synced_Text.text != "Loops Synced!":
@@ -41,8 +41,8 @@ func display_text(text:String):
 	$Synced_Text.text = text
 	$Synced_Text.modulate.a = 1
 
-func _display_count_off(count:int):
-	display_text("%s" % count)
+#func _display_count_off(count:int):
+	#display_text("%s" % count)
 	
 func beat_flash(_main_beat:int, _measure_beat:int, _loop_beat:int):
 	if looper.flashy:

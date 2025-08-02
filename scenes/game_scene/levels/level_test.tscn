@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc0s07hbh6xs5"]
+[gd_scene load_steps=9 format=3 uid="uid://dc0s07hbh6xs5"]
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_cuwy1"]
 [ext_resource type="PackedScene" uid="uid://bsxnqniqj5wkp" path="res://scenes/objects/speaker.tscn" id="1_waojt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch7riw71x6d87" path="res://scenes/objects/spawner.tscn" id="4_lwcio"]
 [ext_resource type="PackedScene" uid="uid://bagmkalg5f024" path="res://scenes/DJ_Deck.tscn" id="5_kw1mj"]
 [ext_resource type="PackedScene" uid="uid://ccg4hitjbm01k" path="res://scenes/objects/player.tscn" id="5_lwcio"]
+[ext_resource type="Theme" uid="uid://dvw2fe07fhjwu" path="res://resources/themes/lore.tres" id="7_kw1mj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwcio"]
 size = Vector2(1635.5, 183)
@@ -44,3 +45,25 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(869.25, 417.5)
 shape = SubResource("RectangleShape2D_lwcio")
+
+[node name="CountOff" type="Label" parent="."]
+custom_minimum_size = Vector2(1280, 320)
+offset_right = 1280.0
+offset_bottom = 320.0
+size_flags_horizontal = 4
+theme = ExtResource("7_kw1mj")
+theme_override_font_sizes/font_size = 150
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountOff1" type="AudioStreamPlayer" parent="CountOff"]
+bus = &"BackgroundMusic"
+
+[node name="CountOff2" type="AudioStreamPlayer" parent="CountOff"]
+bus = &"BackgroundMusic"
+
+[node name="CountOff3" type="AudioStreamPlayer" parent="CountOff"]
+bus = &"BackgroundMusic"
+
+[node name="CountOff4" type="AudioStreamPlayer" parent="CountOff"]
+bus = &"BackgroundMusic"
