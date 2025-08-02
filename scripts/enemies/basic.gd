@@ -9,13 +9,16 @@ extends CharacterBody2D
 signal dying(CharacterBody2D)
 
 var _dotDamage:float = 0;
-var _score:int = 0
+var _score:int = 0;
 
 func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
-	_score = health / 10.0
+	_score = health / 10.0 as int
 	Looper.beat.connect(_on_beat)
+	
+	health_bar.modulate.g = 0;
+	health_bar.modulate.b = 0;
 
 func _physics_process(_delta):
 	velocity = Vector2(-current_speed, 0);
@@ -34,8 +37,12 @@ func _physics_process(_delta):
 func take_damage(info: DamageInfo):
 	$HitParticles.emitting = true
 	if (info.effects.has(DamageInfo.effect_types.DOT)):
+	
+		health_bar.modulate.r = 1/3.0;
+		health_bar.modulate.g = 0;
+		health_bar.modulate.b = 1;
 		_dotDamage += info.damage;
-		$BloodParticles.emitting= true
+		$BloodParticles.emitting = true
 	else:
 		health -= info.damage;
 		health_bar.value = health;
