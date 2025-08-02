@@ -84,10 +84,10 @@ signal beats_synced(synced:bool)
 
 func play(deck_id:int = -1):
 	if deck_id == -1:
-		decks[0].play()
-		decks[1].play()
+		decks[0].play(.01)
+		decks[1].play(.01)
 	elif deck_id ==0 or deck_id == 1:
-		decks[deck_id].play()
+		decks[deck_id].play(.01)
 	playing = true
 	
 func stop():

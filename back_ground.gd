@@ -10,4 +10,5 @@ var colors:Array[Color] = \
 Color.CADET_BLUE, Color.DARK_VIOLET, Color.FOREST_GREEN, Color.LIGHT_PINK]
 
 func _on_beat(beat:int, measure_beat:int, loop_beat:int) -> void:
-	self_modulate = colors[randi_range(0,colors.size()-1)]
+	if Looper.flashy:
+		self_modulate = colors[randi_range(0,colors.size()-1)]
