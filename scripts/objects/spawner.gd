@@ -15,5 +15,5 @@ func spawn_something():
 		spawn_point.spawn_enemy(enemy);
 		enemy_timer.start(randf_range(spawn_interval_min, spawn_interval_max))
 
-func _on_wave_start():
+func _on_wave_start(waveID:int):
 	spawn_something()

@@ -1,7 +1,7 @@
 extends Node
 
 # Wave Changes
-signal started 
+signal started(int)
 signal complete
 signal scoreChange(int)
 
@@ -9,7 +9,7 @@ var waveCount = 0;
 var score = 0;
 var _enemyList: Dictionary = {}
 
-@export var timeBetweenWaves: float = 5;
+@export var timeBetweenWaves: float = 2;
 
 @onready var currentWave = %CurrentWave
 func reset_game():
@@ -22,7 +22,7 @@ func start_wave():
 	waveCount += 1
 	currentWave.createWave(waveCount)
 	print("Wave %s Started" % [waveCount])
-	emit_signal("started");
+	started.emit(waveCount);
 
 func get_enemy() -> CharacterBody2D:
 	if currentWave.complete:

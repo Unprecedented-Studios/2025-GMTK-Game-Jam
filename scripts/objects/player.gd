@@ -20,8 +20,8 @@ func take_damage(info: DamageInfo):
 		died.emit();
 		#queue_free();
 
-func _wave_started():
-	wave_number_label.text = "%s" % GameStateController.waveCount
+func _wave_started(waveID:int):
+	wave_number_label.text = "%s" % waveID
 
 func _score_changed(score):
 	score_number_label.text = "%s" % score
