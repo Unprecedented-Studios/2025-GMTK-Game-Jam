@@ -105,13 +105,11 @@ tint_progress = Color(0, 0, 0, 1)
 
 [node name="SoundMeterLeft" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
-value = 80.0
 fill_mode = 3
 texture_progress = ExtResource("6_af4r3")
 
 [node name="SoundMeterRight" type="TextureProgressBar" parent="Vbox/HBoxContainer"]
 layout_mode = 2
-value = 85.0
 fill_mode = 3
 texture_progress = ExtResource("6_af4r3")
 

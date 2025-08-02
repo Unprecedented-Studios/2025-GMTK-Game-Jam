@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgr01l84nb6l0"]
+[gd_scene load_steps=4 format=3 uid="uid://bgr01l84nb6l0"]
 
 [ext_resource type="Script" uid="uid://tlkhocuyi2wa" path="res://scripts/objects/Looper.gd" id="1_ygxcf"]
 [ext_resource type="AudioStream" uid="uid://ctg6kgoo2xo6u" path="res://assets/loops/drumNBass1.mp3" id="2_3yhib"]
 [ext_resource type="AudioStream" uid="uid://c7orpp66gjs16" path="res://assets/loops/lead1.mp3" id="3_ppefx"]
-[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="4_ppefx"]
-[ext_resource type="PackedScene" uid="uid://b51ffq7jnmic5" path="res://scenes/overlaid_menus/pause_menu.tscn" id="5_y2qkx"]
 
 [node name="Loops" type="Node"]
 script = ExtResource("1_ygxcf")
@@ -14,7 +12,3 @@ stream = ExtResource("2_3yhib")
 
 [node name="LeadDeck" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ppefx")
-
-[node name="PauseMenu" type="Node" parent="."]
-script = ExtResource("4_ppefx")
-pause_menu_packed = ExtResource("5_y2qkx")

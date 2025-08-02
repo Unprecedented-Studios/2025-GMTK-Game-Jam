@@ -26,10 +26,7 @@ func _ready() -> void:
 	if false && not level_state.tutorial_read:
 		open_tutorials()
 	else:
-		start_wave()
+		Looper.start_playing()
 
 func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
-
-func start_wave():
-	GameStateController.start_wave();

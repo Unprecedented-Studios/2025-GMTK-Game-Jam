@@ -16,7 +16,7 @@ func new_game() -> void:
 	else:
 		GlobalState.reset()
 		load_game_scene()
-		Looper.play()
+		#Looper.play()
 
 func intro_done() -> void:
 	animation_state_machine.travel("OpenMainMenu")

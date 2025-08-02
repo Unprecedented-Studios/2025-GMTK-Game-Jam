@@ -14,7 +14,7 @@ var _score:int = 0
 func _ready():
 	health_bar.max_value = health;
 	health_bar.value = health;
-	_score = health / 10
+	_score = health / 10.0
 	Looper.beat.connect(_on_beat)
 
 func _physics_process(_delta):

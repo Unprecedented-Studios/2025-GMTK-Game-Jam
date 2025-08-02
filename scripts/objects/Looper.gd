@@ -13,10 +13,12 @@ signal drum_attack_changed(new_attack:drum_attacks)
 signal lead_attack_changed(new_attack:lead_attacks)
 
 var playing:bool = false
+var countdown:bool = false
 var flashy:bool = true
 var synced:bool = true
 
 signal beat(beat_number:int, measure:int, sixteen: int)
+signal count_off(number:int)
 @onready var drum_n_bass_tracks:Array = [
 	preload("res://assets/loops/drumNBass1.mp3"),
 	preload("res://assets/loops/drumNBass2.mp3"),
@@ -39,20 +41,54 @@ var current_time:float = 0.0
 var current_beat:float = 0.0
 var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
-
+var countdown_fast: bool = false
 func _ready():
-	#pass
-	play()
+	reset_music();
+	#start_playing()
+	#play()
 	#play(0)
 	#play(1)
 
+func start_playing():
+	playing = false;
+	countdown = true
+	current_time = -1
+
 func _physics_process(delta: float) -> void:
-	if playing:
-		last_time = current_time
-		current_time += delta
-		current_beat = current_time*2.0
-		play_with_check()
+	last_time = current_time
+	current_time += delta
+	current_beat = current_time*2.0
 	
+	if playing:
+		play_with_check()
+	elif countdown:
+		_countdown_process()
+
+func _countdown_process():
+	var current_beat_int:int = floor(current_beat)
+	var last_beat_int:int =floor(last_time*2.0)
+	if current_beat_int != last_beat_int:
+		var call_number = '-';
+		if countdown_fast:
+			if (current_beat_int%16 == 8):
+				countdown_fast = false;
+				countdown = false;
+				playing = true
+				play()
+				play_with_check()
+				return
+			var count = (current_beat_int%4)+1
+			count_off.emit(count)
+			call_number = "%s" % [count];
+		elif current_beat_int%2 == 0:
+			var count = (current_beat_int%8)/2+1
+			count_off.emit(count)
+			call_number = "%s" % [count];
+		elif current_beat_int%4 == 3:
+			countdown_fast = true;
+		print("call: %s		current_beat: %s-%s-%s" % [call_number, current_beat_int+1,(current_beat_int%4)+1,(current_beat_int%16)+1])
+
+
 func play_with_check():
 	var current_beat_int:int = floor(current_beat)
 	var last_beat_int:int =floor(last_time*2.0)
@@ -89,17 +125,22 @@ func play(deck_id:int = -1):
 	elif deck_id ==0 or deck_id == 1:
 		decks[deck_id].play(.01)
 	playing = true
-	
+
+	GameStateController.start_wave();
+
 func stop():
 	playing = false
 	decks[0].stop()
 	decks[1].stop()
 
 func reset_music():
-	current_time = 0.0
+	countdown_fast = false;
+	playing = false
+	countdown = false 
+	current_time = -1.0
 	last_time = 0.0
-	deck_beats[0] = 0
-	deck_beats[1] = 0
+	deck_beats[0] = -1
+	deck_beats[1] = -1
 	decks[0].stop()
 	decks[1].stop()
 	

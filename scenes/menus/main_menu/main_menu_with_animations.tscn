@@ -356,7 +356,7 @@ theme = ExtResource("2_ixa71")
 script = ExtResource("2_sr523")
 level_select_packed_scene = null
 confirm_new_game = false
-game_scene_path = "uid://dc0s07hbh6xs5"
+game_scene_path = "uid://4st6nf3enq46"
 options_packed_scene = ExtResource("3_ixa71")
 credits_packed_scene = ExtResource("4_rr1rn")
 

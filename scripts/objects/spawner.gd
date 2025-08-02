@@ -3,6 +3,8 @@ extends Node
 @export var spawn_interval_max:float = 3;
 @export var spawnPoints:Array[Marker2D] = []
 
+@onready var enemy_timer = %EnemyTimer
+
 func _ready():
 	GameStateController.started.connect(_on_wave_start);
 	
@@ -11,7 +13,7 @@ func spawn_something():
 	if enemy: 
 		var spawn_point = spawnPoints.pick_random();
 		spawn_point.spawn_enemy(enemy);
-		get_tree().create_timer(randf_range(spawn_interval_min, spawn_interval_max)).timeout.connect(spawn_something)
+		enemy_timer.start(randf_range(spawn_interval_min, spawn_interval_max))
 
 func _on_wave_start():
 	spawn_something()
