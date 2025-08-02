@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://ulha37wlmljg"]
+
+[ext_resource type="Script" uid="uid://8v6gfhvm81vb" path="res://scripts/enemies/animated_enemy_mixer.gd" id="1_quxox"]
+[ext_resource type="Texture2D" uid="uid://cf8nuuql4qfyo" path="res://assets/enemies/bodies/basic/characterWhite (6).png" id="2_xthut"]
+[ext_resource type="Texture2D" uid="uid://cormoy5xwtrr" path="res://assets/enemies/bodies/basic/characterWhite (7).png" id="3_leqme"]
+[ext_resource type="Texture2D" uid="uid://jwa0gri4xjxt" path="res://assets/enemies/bodies/basic/characterWhite (8).png" id="4_jugyp"]
+[ext_resource type="Texture2D" uid="uid://cpy5d824brs6x" path="res://assets/enemies/bodies/basic/characterWhite (9).png" id="5_dse8q"]
+[ext_resource type="Texture2D" uid="uid://dhhy8hfiov6ey" path="res://assets/enemies/bodies/basic/characterWhite (10).png" id="6_g1hg4"]
+[ext_resource type="Texture2D" uid="uid://cu4ts2gyy7vdb" path="res://assets/enemies/bodies/basic/characterWhite (11).png" id="7_trb5i"]
+[ext_resource type="Texture2D" uid="uid://dt2lo4cim75kx" path="res://assets/enemies/bodies/basic/characterWhite (12).png" id="8_0owqy"]
+[ext_resource type="AnimationLibrary" uid="uid://cy1anl7vjle61" path="res://resources/animations/enemy_walk.res" id="9_xthut"]
+
+[node name="BurlyAnimatedEnemy" type="Node2D"]
+script = ExtResource("1_quxox")
+bodyList = Array[Texture2D]([ExtResource("2_xthut"), ExtResource("3_leqme"), ExtResource("4_jugyp"), ExtResource("5_dse8q"), ExtResource("6_g1hg4")])
+legList = Array[Texture2D]([ExtResource("7_trb5i"), ExtResource("7_trb5i"), ExtResource("7_trb5i"), ExtResource("8_0owqy"), ExtResource("7_trb5i")])
+
+[node name="EnemyLeftLeg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("7_trb5i")
+centered = false
+
+[node name="EnemyRightLeg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -13)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_trb5i")
+centered = false
+
+[node name="EnemyBody" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_xthut")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"enemy_walk": ExtResource("9_xthut")
+}
+autoplay = "enemy_walk/walk"
+speed_scale = 0.5

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0ats68u4sdfn"]
 
 [ext_resource type="Script" uid="uid://6r4ww2oabfoq" path="res://scripts/enemies/basic.gd" id="1_2c0e7"]
-[ext_resource type="Texture2D" uid="uid://c7ykhu7vrsdp3" path="res://assets/temp_assets/kenny_tower_def/PNG/Default size/towerDefense_tile248.png" id="2_2c0e7"]
+[ext_resource type="PackedScene" uid="uid://ulha37wlmljg" path="res://scenes/enemies/basic_burly_animated_enemy.tscn" id="2_2c0e7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i54nl"]
 radius = 30.0
@@ -13,10 +13,8 @@ script = ExtResource("1_2c0e7")
 speed = 100.0
 health = 50.0
 
-[node name="BurlyMan" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_2c0e7")
-flip_h = true
+[node name="BurlyAnimatedEnemy" parent="." instance=ExtResource("2_2c0e7")]
+scale = Vector2(2.9, 2.9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_i54nl")
