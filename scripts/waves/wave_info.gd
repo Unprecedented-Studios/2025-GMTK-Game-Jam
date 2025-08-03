@@ -16,7 +16,7 @@ func createWave(level):
 		if level >= enemy_list.firstWave[i]:
 			var element = WaveElement.new()
 			element.ID = i
-			element.count = level * enemy_list.levelMultiplier[i]
+			element.count = enemy_list.initialCount[i] + level * enemy_list.levelMultiplier[i]
 			_enemyCount.push_back(element)
 
 func pick_random_enemy():

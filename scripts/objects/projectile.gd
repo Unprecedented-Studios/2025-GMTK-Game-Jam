@@ -1,7 +1,7 @@
 extends Sprite2D
 @export var speed: float = 400;
 @export var damage: float = 5;
-@export var sync_bonus = 1.2
+@export var sync_bonus = 1.5
 var _damage_info: DamageInfo = DamageInfo.new()
 var _explode: bool = false;
 var _pierce: bool = false;

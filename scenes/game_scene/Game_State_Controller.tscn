@@ -17,19 +17,13 @@ timeBetweenWaves = 2.5
 unique_name_in_owner = true
 script = ExtResource("2_lwbmw")
 types = Array[PackedScene]([ExtResource("2_b5n37"), ExtResource("3_lwbmw"), ExtResource("5_bp6dm"), ExtResource("6_yj4yo"), ExtResource("7_r7vm1")])
-firstWave = Array[int]([1, 3, 2, 2, 2])
-levelMultiplier = Array[int]([5, 1, 2, 2, 2])
+firstWave = Array[int]([1, 2, 3, 4, 5])
+levelMultiplier = Array[int]([2, 1, 1, 1, 1])
+initialCount = Array[int]([3, 0, -1, -2, -3])
 
 [node name="CurrentWave" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_3p5tp")
-
-[node name="HBoxContainer11" type="HBoxContainer" parent="."]
-alignment = 1
-
-[node name="Specialty" type="Label" parent="HBoxContainer11"]
-layout_mode = 2
-text = "Faster"
 
 [node name="WaveTimer" type="Timer" parent="."]
 unique_name_in_owner = true
