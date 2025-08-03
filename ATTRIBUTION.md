@@ -1,5 +1,7 @@
 # Attribution
 ## Collaborators
+Marshall and Matthew Couch
+
 
 ### Godot Game Template
 ![Maaack Plugin Icon](/assets/plugin_logo/logo.png)  
@@ -18,7 +20,25 @@ Author: [Jason Long](https://bsky.app/profile/jasonlong.me)
 Source: [git-scm.com : logos](https://git-scm.com/downloads/logos)  
 License: [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) 
 
+#### Kenney Sports Pack
+Author: [Kenney](https://www.kenney.nl/)
+Source: [Kenney Sports Pack](https://www.kenney.nl/assets/sports-pack)
+License:[CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### Advanced Cyberpunk GUI
+Author: [Ultra-Knight](https://www.gamedevmarket.net/member/ultra-knight)
+Source: [Game Dev Marketplace](https://www.gamedevmarket.net/asset/advanced-cyberpunk-gui)
+License: [GDM Pro License](https://www.gamedevmarket.net/terms-conditions#pro-licence)
+
+
 ## Tools
+#### FL Studio
+Source: [Image-Line FL Studio](https://www.image-line.com/fl-studio/)
+
+#### Krita
+Source: [krita.org](https://krita.org)
+License: [GNU General Public License Version 3](https://krita.org/en/about/license/)
+
 #### Godot
 ![Godot Engine Logo](/assets/godot_engine_logo/logo_vertical_color_dark.png)  
 Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  

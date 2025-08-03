@@ -43,6 +43,5 @@ License: [url=https://github.com/microsoft/vscode/blob/main/LICENSE.txt]MIT Lice
 Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
 Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
 License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
-  
 [/center]"
 attribution_file_path = "res://ATTRIBUTION.md"
