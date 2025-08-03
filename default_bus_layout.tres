@@ -1,27 +1,9 @@
-[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://dlo5inop6ahho"]
-
-[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
-resource_name = "Chorus"
-
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
-resource_name = "Reverb"
-
-[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
-resource_name = "Distortion"
-mode = 2
-drive = 0.8
-
-[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_j3pel"]
-resource_name = "Delay"
-tap2_active = false
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://dlo5inop6ahho"]
 
 [sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
 resource_name = "HardLimiter"
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
-resource_name = "Compressor"
-
-[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_g28q7"]
 resource_name = "Compressor"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_n8wo2"]
@@ -42,16 +24,8 @@ resource_name = "Amplify"
 volume_db = 4.0
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
-bus/0/effect/0/enabled = false
-bus/0/effect/1/effect = SubResource("AudioEffectReverb_j3pel")
-bus/0/effect/1/enabled = false
-bus/0/effect/2/effect = SubResource("AudioEffectDistortion_j3pel")
-bus/0/effect/2/enabled = false
-bus/0/effect/3/effect = SubResource("AudioEffectDelay_j3pel")
-bus/0/effect/3/enabled = false
-bus/0/effect/4/effect = SubResource("AudioEffectHardLimiter_j3pel")
-bus/0/effect/4/enabled = true
+bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_j3pel")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -60,53 +34,39 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectCompressor_j3pel")
 bus/1/effect/0/enabled = true
-bus/2/name = &"SFX"
+bus/2/name = &"Drum Bass lOOPS"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
-bus/2/send = &"Master"
-bus/2/effect/0/effect = SubResource("AudioEffectCompressor_g28q7")
-bus/2/effect/0/enabled = true
-bus/3/name = &"Drum+Bass"
+bus/2/send = &"Music"
+bus/3/name = &"Lead"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Music"
-bus/4/name = &"Lead"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_n8wo2")
+bus/3/effect/0/enabled = true
+bus/4/name = &"Samples"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Music"
-bus/4/effect/0/effect = SubResource("AudioEffectReverb_n8wo2")
-bus/4/effect/0/enabled = true
-bus/5/name = &"Pads"
+bus/5/name = &"Background Music"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
-bus/5/send = &"Music"
-bus/6/name = &"Samples"
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectReverb_cenje")
+bus/5/effect/0/enabled = true
+bus/6/name = &"Count Off"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
-bus/6/volume_db = 0.0
-bus/6/send = &"SFX"
-bus/7/name = &"BackgroundMusic"
-bus/7/solo = false
-bus/7/mute = false
-bus/7/bypass_fx = false
-bus/7/volume_db = 0.0
-bus/7/send = &"Music"
-bus/7/effect/0/effect = SubResource("AudioEffectReverb_cenje")
-bus/7/effect/0/enabled = true
-bus/8/name = &"Count_off"
-bus/8/solo = false
-bus/8/mute = false
-bus/8/bypass_fx = false
-bus/8/volume_db = 6.02
-bus/8/send = &"Master"
-bus/8/effect/0/effect = SubResource("AudioEffectAmplify_j3pel")
-bus/8/effect/0/enabled = true
+bus/6/volume_db = 6.02
+bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectAmplify_j3pel")
+bus/6/effect/0/enabled = true

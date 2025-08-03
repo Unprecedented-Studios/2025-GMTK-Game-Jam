@@ -3,11 +3,11 @@ class_name  SampleBox
 
 
 var sample_preloads:Dictionary = {\
-	"Noise_Sweep":preload("res://assets/samples/Noise_Sweep_1.mp3"),
-	"Big_Explosion":preload("res://assets/samples/Big_Explosion.mp3"),
+	"Sweep":preload("res://assets/samples/Noise_Sweep_1.mp3"),
+	"Explosion":preload("res://assets/samples/Big_Explosion.mp3"),
 	"Glitches":preload("res://assets/samples/Glitches.mp3"),
 	"Growl":preload("res://assets/samples/Growl.mp3"),
-	"Record_Scratch":preload("res://assets/samples/Record_Scratch.mp3")
+	"Scratch":preload("res://assets/samples/Record_Scratch.mp3")
 	}
 
 enum damage_types {
@@ -93,10 +93,11 @@ func play_sound():
 
 
 func _on_sample_button_down() -> void:
-	$Hbox/AudioStreamPlayer.play()
-	$Hbox/TextureProgressBar.value = 100.0
-	$Hbox/SampleButton.disabled = true
-	Looper.sample_attack(damage_info,self)
+	if Looper.playing:
+		$Hbox/AudioStreamPlayer.play()
+		$Hbox/TextureProgressBar.value = 100.0
+		$Hbox/SampleButton.disabled = true
+		Looper.sample_attack(damage_info,self)
 
 signal display_accuracy(text:String)
 func return_accuracy(text:String):

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b1crq3puylkjk"]
 
 [ext_resource type="Texture2D" uid="uid://cu4ts2gyy7vdb" path="res://assets/enemies/bodies/basic/characterWhite (11).png" id="1_eq18n"]
-[ext_resource type="Script" uid="uid://8v6gfhvm81vb" path="res://scripts/enemies/animated_enemy_mixer.gd" id="1_pfrif"]
+[ext_resource type="Script" path="res://scripts/enemies/animated_enemy_mixer.gd" id="1_pfrif"]
 [ext_resource type="Texture2D" uid="uid://d0gkcsigt8b0k" path="res://assets/enemies/bodies/basic/characterWhite (1).png" id="2_pfrif"]
 [ext_resource type="Texture2D" uid="uid://dwa4bq3ly7jvw" path="res://assets/enemies/bodies/basic/characterWhite (2).png" id="3_4fej1"]
 [ext_resource type="Texture2D" uid="uid://bjpf0iev3fp62" path="res://assets/enemies/bodies/basic/characterWhite (3).png" id="4_yxaib"]
