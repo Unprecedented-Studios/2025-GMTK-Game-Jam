@@ -43,10 +43,8 @@ var last_time:float = -1.0
 var deck_beats:Array[int] = [0,0]
 var countdown_fast: bool = false
 
-	#start_playing()
-	#play()
-	#play(0)
-	#play(1)
+func _ready():
+	flashy = not Config.get_config(&'VideoSettings', 'DISABLE_FLASHING', false);
 
 func start_playing():
 	playing = false;

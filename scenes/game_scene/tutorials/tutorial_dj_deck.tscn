@@ -5,6 +5,7 @@
 [node name="Tutorial3" instance=ExtResource("1_n131d")]
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
+layout_mode = 0
 offset_right = 1283.0
 offset_bottom = 337.0
 color = Color(0, 0, 0, 1)

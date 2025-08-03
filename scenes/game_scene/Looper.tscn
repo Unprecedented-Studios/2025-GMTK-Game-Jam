@@ -9,7 +9,6 @@ script = ExtResource("1_ygxcf")
 
 [node name="DrumNBassDeck" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3yhib")
-bus = &"Drum+Bass"
 
 [node name="LeadDeck" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ppefx")
