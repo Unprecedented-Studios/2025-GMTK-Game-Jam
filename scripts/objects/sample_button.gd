@@ -91,7 +91,6 @@ func set_text(new_text:String = "Sample"):
 func play_sound():
 	_on_sample_button_down()
 
-
 func _on_sample_button_down() -> void:
 	if Looper.playing:
 		$Hbox/AudioStreamPlayer.play()

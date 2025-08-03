@@ -99,11 +99,11 @@ texture = ExtResource("3_ghnrh")
 stretch_mode = 2
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="9"]
-modulate = Color(1, 0.266667, 0.266667, 1)
 layout_mode = 2
 alignment = 1
 
 [node name="Resists" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer5" index="0"]
+modulate = Color(1, 0.266667, 0.266667, 1)
 layout_mode = 2
 text = "Fire"
 

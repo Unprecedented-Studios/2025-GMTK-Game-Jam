@@ -32,4 +32,4 @@ tint_under = Color(1, 1, 1, 0.0666667)
 stream = ExtResource("4_hnghc")
 bus = &"Samples"
 
-[connection signal="pressed" from="Hbox/SampleButton" to="Hbox" method="_on_sample_button_down"]
+[connection signal="pressed" from="Hbox/SampleButton" to="." method="_on_sample_button_down"]

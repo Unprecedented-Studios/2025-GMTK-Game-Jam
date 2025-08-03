@@ -165,15 +165,16 @@ enum sample_attacks {STANDARD, SLOW, AOE, DOT, PIERCE, MULTI, FAST}
 
 func sample_attack(damage_info:DamageInfo,button:SampleBox):
 	var accuracy:float = abs(current_beat - round(current_beat))
+	#print("Accuracy: %s = %s - %s" % [accuracy, current_beat, round(current_beat)])
 	var accuracy_text:String = ""
 	var damage_mod: float = 1.0
-	if accuracy < .05:
+	if accuracy < .15: # within 1 frame
 		accuracy_text = "Perfect!"
 		damage_mod = 2.0
-	elif accuracy < .1:
+	elif accuracy < .30: # within 2 frames
 		accuracy_text = "Great!"
 		damage_mod = 1.5
-	elif accuracy < .15:
+	elif accuracy < .60: # within 4 frame 
 		accuracy_text = "Not Bad!"
 		damage_mod = 1.2
 	else:
