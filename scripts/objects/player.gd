@@ -36,3 +36,5 @@ func _process(delta: float) -> void:
 		$RightArm.position.y = 6.0 + bounce
 		$LeftRecordPivot.rotation += delta * 4.0
 		$RightRecordPivot.rotation += delta * 4.0
+		var color_amount:float = .9 + bounce*.1
+		$Booth.modulate = Color(color_amount,color_amount,color_amount,1)
