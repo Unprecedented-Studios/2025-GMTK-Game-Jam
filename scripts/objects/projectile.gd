@@ -12,12 +12,12 @@ func _ready():
 	
 	match Looper.playing_lead_attack:
 		Looper.lead_attacks.FAST:
-			damage /= 5
+			damage /= 4
 		Looper.lead_attacks.PIERCE:
 			damage -= 1
 			_pierce = true;
 		Looper.lead_attacks.MULTI:
-			damage /= 4
+			damage /= 3
 	
 	match Looper.playing_drum_attack:
 		Looper.drum_attacks.SLOW:
@@ -39,7 +39,7 @@ func _ready():
 	if (Looper.synced):
 		multiplier *= sync_bonus;
 		
-	_damage_info.damage = damage * multiplier;
+	_damage_info.damage = max(0.5, damage * multiplier);
 	scale *= max(1, _damage_info.damage*.25)
 
 func _physics_process(delta):
