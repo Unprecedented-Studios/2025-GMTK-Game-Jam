@@ -12,9 +12,9 @@ collision_mask = 3
 script = ExtResource("1_g1mvm")
 health = 50.0
 damage = 5
-strongAgainst = Array[int]([8])
-weakAgainst = Array[int]([1])
-immunity = Array[int]([3])
+strongAgainst = Array[int]([7])
+weakAgainst = Array[int]([0])
+immunity = Array[int]([2])
 
 [node name="BasicAnimatedEnemy" parent="." instance=ExtResource("3_sxads")]
 modulate = Color(0.498039, 0, 1, 1)

@@ -19,8 +19,8 @@ script = ExtResource("1_f3rg5")
 speed = 250.0
 health = 40.0
 damage = 15
-strongAgainst = Array[int]([5])
-weakAgainst = Array[int]([7])
+strongAgainst = Array[int]([4])
+weakAgainst = Array[int]([6])
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 visible = false

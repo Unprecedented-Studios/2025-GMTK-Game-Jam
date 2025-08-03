@@ -33,7 +33,7 @@ func _on_beat(_beat_counter,_note, _count):
 			_fire_projectile(Vector2(0,multi_yOffset))
 			_fire_projectile(Vector2(0,-multi_yOffset))
 
-func _on_wave_start(waveID: int):
+func _on_wave_start(_waveID: int):
 	if !Looper.beat.is_connected(_on_beat):
 		Looper.beat.connect(_on_beat);
 	_shooting = true;

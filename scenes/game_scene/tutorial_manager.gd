@@ -5,7 +5,7 @@ extends Node
 @export var open_delay : float = 0.25
 @export var auto_open : bool = false
 
-var level_state: LevelState
+var game_state: GameState
 
 func open_tutorials(wave:int = 0) -> void:
 	if open_delay > 0.0:
@@ -14,7 +14,7 @@ func open_tutorials(wave:int = 0) -> void:
 	for i  in range(0,tutorial_scenes.size()):
 		var tutorial_scene = tutorial_scenes[i]
 		var tutorial_wave = tutorial_waves[i]
-		if wave == tutorial_wave && not level_state.tutorial_read.has(tutorial_scene):
+		if wave == tutorial_wave && not game_state.tutorial_read.has(tutorial_scene):
 			var tutorial_menu : OverlaidMenu = tutorial_scene.instantiate()
 			if tutorial_menu == null:
 				push_warning("tutorial failed to open %s" % tutorial_scene)
@@ -22,7 +22,7 @@ func open_tutorials(wave:int = 0) -> void:
 			get_tree().current_scene.call_deferred("add_child", tutorial_menu)
 			await tutorial_menu.tree_exited
 			
-			level_state.tutorial_read.set(tutorial_scene, true)
+			game_state.tutorial_read.set(tutorial_scene, true)
 			GlobalState.save()
 			if is_inside_tree() and _initial_focus_control:
 				_initial_focus_control.grab_focus()
@@ -33,7 +33,7 @@ func open_tutorials(wave:int = 0) -> void:
 
 func _ready() -> void:
 	
-	level_state = GameState.get_level_state('DJ-De-Fintz')
+	game_state = GameState.get_or_create_state()
 	
 	GameStateController.started.connect(open_tutorials)
 	open_tutorials()

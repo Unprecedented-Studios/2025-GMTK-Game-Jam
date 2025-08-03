@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://4st6nf3enq46"]
+[gd_scene load_steps=9 format=3 uid="uid://4st6nf3enq46"]
 
 [ext_resource type="Script" uid="uid://dtymlftw8kra1" path="res://scripts/overlay_menu_controller.gd" id="1_dnslt"]
 [ext_resource type="PackedScene" uid="uid://b51ffq7jnmic5" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://cvr36eb0r2bje" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="3_v20na"]
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_ul61k"]
 [ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="5_vbgr5"]
+[ext_resource type="PackedScene" uid="uid://c3tkuge4hko41" path="res://scenes/game_scene/tutorials/tutorial_2.tscn" id="6_vbgr5"]
 [ext_resource type="PackedScene" uid="uid://dc0s07hbh6xs5" path="res://scenes/game_scene/levels/level_test.tscn" id="6_y85d6"]
 [ext_resource type="Script" uid="uid://cl3opf2oe8og3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_0v86b"]
 
@@ -25,8 +26,8 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="TutorialManager" type="Node" parent="."]
 script = ExtResource("4_ul61k")
-tutorial_scenes = Array[PackedScene]([ExtResource("5_vbgr5")])
-tutorial_waves = Array[int]([0])
+tutorial_scenes = Array[PackedScene]([ExtResource("5_vbgr5"), ExtResource("6_vbgr5")])
+tutorial_waves = Array[int]([0, 2])
 auto_open = true
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]

@@ -11,6 +11,7 @@
 
 [node name="GameStateController" type="Node"]
 script = ExtResource("1_v1peb")
+timeBetweenWaves = 2.5
 
 [node name="EnemyList" type="Node" parent="."]
 unique_name_in_owner = true
@@ -22,3 +23,16 @@ levelMultiplier = Array[int]([5, 1, 2, 2, 2])
 [node name="CurrentWave" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_3p5tp")
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="."]
+alignment = 1
+
+[node name="Specialty" type="Label" parent="HBoxContainer11"]
+layout_mode = 2
+text = "Faster"
+
+[node name="WaveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="start_wave"]

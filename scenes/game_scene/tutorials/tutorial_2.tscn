@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3tkuge4hko41"]
+[gd_scene load_steps=5 format=3 uid="uid://c3tkuge4hko41"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_sjjon"]
+[ext_resource type="Texture2D" uid="uid://dyglqvil4to3w" path="res://assets/enemies/bodies/blue/characterBlue (1).png" id="2_plxvu"]
+[ext_resource type="Texture2D" uid="uid://c3b0glbfep2cu" path="res://assets/enemies/bodies/red/characterRed (1).png" id="3_ghnrh"]
+[ext_resource type="Texture2D" uid="uid://d0gkcsigt8b0k" path="res://assets/enemies/bodies/basic/characterWhite (1).png" id="4_84g2x"]
 
 [node name="Tutorial2" instance=ExtResource("1_sjjon")]
+process_mode = 3
+pauses_game = true
 
 [node name="MenuPanelContainer" parent="." index="1"]
 offset_left = -206.0
@@ -20,6 +25,136 @@ text = "Tutorial"
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Progress is saved.
-Pressing Continue from the main menu will load the last level played.[/center]"
+text = "Some fans have affinities:"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="2"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+columns = 4
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="0"]
+layout_mode = 2
+text = "                       "
+
+[node name="Resists" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="1"]
+layout_mode = 2
+text = "    Resists    "
+
+[node name="Weakness" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="2"]
+layout_mode = 2
+text = "    Weakness    "
+
+[node name="Special" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="3"]
+layout_mode = 2
+text = "    Differences    "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="4"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_plxvu")
+stretch_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="5"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resists" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer2" index="0"]
+modulate = Color(0.498039, 0.498039, 1, 1)
+layout_mode = 2
+text = "Ice"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="6"]
+layout_mode = 2
+alignment = 1
+
+[node name="Weakness" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer3" index="0"]
+modulate = Color(1, 0.266667, 0.266667, 1)
+layout_mode = 2
+text = "Fire"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="7"]
+layout_mode = 2
+alignment = 1
+
+[node name="Specialty" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer10" index="0"]
+layout_mode = 2
+text = "Slower"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="8"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer4" index="0"]
+layout_mode = 2
+texture = ExtResource("3_ghnrh")
+stretch_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="9"]
+modulate = Color(1, 0.266667, 0.266667, 1)
+layout_mode = 2
+alignment = 1
+
+[node name="Resists" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer5" index="0"]
+layout_mode = 2
+text = "Fire"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="10"]
+layout_mode = 2
+alignment = 1
+
+[node name="Weakness" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer6" index="0"]
+modulate = Color(0.498039, 0.498039, 1, 1)
+layout_mode = 2
+text = "Ice"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="11"]
+layout_mode = 2
+alignment = 1
+
+[node name="Specialty" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer11" index="0"]
+layout_mode = 2
+text = "Faster"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="12"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer7" index="0"]
+modulate = Color(0.498039, 0, 1, 1)
+layout_mode = 2
+texture = ExtResource("4_84g2x")
+stretch_mode = 2
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="13"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resists" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer8" index="0"]
+modulate = Color(0.866667, 0.4, 1, 1)
+layout_mode = 2
+text = "Poison"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="14"]
+layout_mode = 2
+alignment = 1
+
+[node name="Weakness" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer9" index="0"]
+layout_mode = 2
+text = "Normal"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer" index="15"]
+layout_mode = 2
+alignment = 1
+
+[node name="Specialty" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/HBoxContainer/GridContainer/HBoxContainer12" index="0"]
+layout_mode = 2
+text = "Tougher"

@@ -2,8 +2,6 @@ extends Node
 
 signal level_lost
 
-var level_state : LevelState
-
 func _on_lose_button_pressed() -> void:
 	level_lost.emit()
 

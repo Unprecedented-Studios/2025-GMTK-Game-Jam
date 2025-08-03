@@ -59,8 +59,10 @@ func _add_level_select_if_set() -> void:
 
 func _show_continue_if_set() -> void:
 	#added false and to prevent continue from showing
-	if false and GameState.has_game_state():
-		%ContinueGameButton.show()
+	if GameState.has_game_state():
+		var state = GameState.get_or_create_state();
+		if (state.playerData.size() > 0):
+			%ContinueGameButton.show()
 
 func _ready() -> void:
 	super._ready()

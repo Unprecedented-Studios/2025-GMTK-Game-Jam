@@ -5,23 +5,41 @@ extends StaticBody2D
 @onready var wave_number_label = %WaveNumberLabel
 @onready var score_number_label = %ScoreNumberLabel
 
+var game_state:GameState
+
 signal died
 
 func _ready():
+	game_state = GameState.get_or_create_state()
+		
 	health_bar.max_value = health;
+	if game_state.playerData.has("health"):
+		health = game_state.playerData.health
+		score_number_label.text = "%s" % game_state.playerData.score
+		wave_number_label.text = "%s" % [game_state.playerData.lastWave + 1]
+	
 	health_bar.value = health;
 	GameStateController.started.connect(_wave_started)
 	GameStateController.scoreChange.connect(_score_changed)
+	GameStateController.complete.connect(_wave_completed)
 
 func take_damage(info: DamageInfo):
 	health -= info.damage;
 	health_bar.value = health;
 	if (health <= 0):
+		game_state.playerData = {}
+		GlobalState.save()
 		died.emit();
 		#queue_free();
 
 func _wave_started(waveID:int):
 	wave_number_label.text = "%s" % waveID
+
+func _wave_completed(waveID:int):
+	game_state.playerData.lastWave = waveID
+	game_state.playerData.health = health
+	game_state.playerData.score = GameStateController.score
+	GlobalState.save()
 
 func _score_changed(score):
 	score_number_label.text = "%s" % score
