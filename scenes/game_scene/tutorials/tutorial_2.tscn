@@ -9,6 +9,9 @@
 process_mode = 3
 pauses_game = true
 
+[node name="BackgroundColor" parent="." index="0"]
+color = Color(0, 0, 0, 0.25098)
+
 [node name="MenuPanelContainer" parent="." index="1"]
 offset_left = -206.0
 offset_top = -75.0
